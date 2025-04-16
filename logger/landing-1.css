@@ -1,0 +1,333 @@
+@charset "utf-8"; /* CSS 파일의 문자 인코딩 설정 */
+
+/* reset.css: 모든 요소의 기본 여백과 패딩 제거 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 헤더 영역 스타일 */
+header {
+    height: 100vh; /* 브라우저 한 페이지를 꽉 채우는 높이 설정 */
+    background-image: url(./images/fruit.jpg); /* 배경 이미지 설정 */
+    background-size: cover; /* 배경 이미지를 요소 크기에 맞게 채움 */
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 자식 요소를 수평 중앙 정렬 */
+    align-items: center; /* 자식 요소를 수직 중앙 정렬 */
+}
+
+header > nav {
+    position: fixed; /* 네비게이션 바를 화면 상단에 고정 */
+    width: 100%; /* 네비게이션 바의 너비를 화면 전체로 설정 */
+    align-self: flex-start; /* 네비게이션 바를 헤더 상단에 배치 */
+    display: flex; /* Flexbox 사용 */
+    justify-content: space-between; /* 자식 요소를 좌우로 정렬 */
+    align-items: center; /* 자식 요소를 수직 중앙 정렬 */
+    background-color: rgba(255, 255, 255, 0.7); /* 반투명 배경색 */
+}
+
+header > nav > h1 {
+    font-size: 2rem; /* 제목 글자 크기 */
+    padding: 20px; /* 내부 여백 */
+    background-color: #5d9ab2; /* 제목 배경색 */
+    color: #fff; /* 제목 글자 색상 */
+}
+
+header > nav > ul {
+    list-style: none; /* 리스트 스타일 제거 */
+    margin-right: 30px; /* 오른쪽 여백 */
+}
+
+header > nav > ul > li {
+    display: inline-block; /* 리스트 아이템을 가로로 배치 */
+    padding: 10px 20px; /* 내부 여백 */
+}
+
+header > nav > ul > li:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* 호버 시 배경색 변경 */
+}
+
+header > nav > ul > li > a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit; /* 부모 요소의 글자 색상 상속 */
+}
+
+#head {
+    width: 500px; /* 헤더 내부 콘텐츠의 너비 설정 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    color: white; /* 텍스트 색상을 흰색으로 설정 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경색 */
+    padding: 20px; /* 내부 여백 */
+    border-radius: 10px; /* 모서리를 둥글게 설정 */
+}
+
+#head > p:nth-child(1) {
+    font-size: 4rem; /* 첫 번째 문구의 글자 크기 설정 */
+    letter-spacing: 1rem; /* 글자 간격 설정 */
+    font-weight: bolder; /* 글자 굵게 설정 */
+}
+
+#head > p:nth-child(2) {
+    font-size: 1.2rem; /* 두 번째 문구의 글자 크기 설정 */
+    margin: 1rem; /* 외부 여백 설정 */
+}
+
+/* 버튼 스타일 */
+.button_style {
+    background-color: rgb(228, 75, 100); /* 버튼 배경색 */
+    width: 150px; /* 버튼 너비 */
+    font-size: 0.6rem; /* 버튼 글자 크기 */
+    padding: 10px; /* 버튼 내부 여백 */
+    border: 2px solid rgb(255, 255, 255); /* 버튼 테두리 */
+    border-radius: 5px; /* 버튼 모서리 둥글게 */
+    margin: auto; /* 중앙 정렬 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    color: #fff; /* 버튼 글자 색상 */
+}
+
+#head > div:nth-child(3):hover {
+    background-color: rgb(226, 103, 103); /* 버튼 호버 시 배경색 변경 */
+}
+
+/* SNS 섹션 스타일 */
+section#sns {
+    padding: 30px; /* 섹션 내부 여백 */
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 자식 요소를 수평 중앙 정렬 */
+    gap: 60px; /* 카드 간 간격 */
+}
+
+section#sns > .card {
+    width: 300px; /* 카드 너비 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+section#sns > .card > .icon {
+    background-color: #aaa; /* 아이콘 배경색 */
+    width: 70px; /* 아이콘 너비 */
+    height: 70px; /* 아이콘 높이 */
+    margin: 20px auto; /* 아이콘 중앙 정렬 */
+    border-radius: 50%; /* 아이콘을 원형으로 설정 */
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 아이콘 내부 콘텐츠 수평 중앙 정렬 */
+    align-items: center; /* 아이콘 내부 콘텐츠 수직 중앙 정렬 */
+}
+
+section#sns > .card > .icon > i {
+    font-size: 2rem; /* 아이콘 크기 */
+    color: #fff; /* 아이콘 색상 */
+}
+
+section#sns > .card > p:nth-of-type(1) {
+    font-weight: bolder; /* 첫 번째 텍스트 굵게 설정 */
+    font-size: 1.3rem; /* 첫 번째 텍스트 크기 */
+}
+
+section#sns > .card > p:nth-of-type(2) {
+    line-height: 2; /* 텍스트 줄 간격 */
+    font-size: 0.8rem; /* 두 번째 텍스트 크기 */
+    color: #333; /* 텍스트 색상 */
+    padding: 10px; /* 텍스트 내부 여백 */
+}
+
+section#sns > .card > a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #5d9ab2; /* 링크 색상 */
+}
+
+section#sns > .card > a > span {
+    font-weight: bolder; /* 링크 내부 텍스트 굵게 설정 */
+}
+
+/* 상세 설명 섹션 스타일 */
+section#detail {
+    background-color: #5d9ab2; /* 섹션 배경색 */
+    color: #fff; /* 텍스트 색상 */
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 자식 요소 수평 중앙 정렬 */
+    align-items: stretch; /* 자식 요소 높이 동일하게 설정 */
+}
+
+section#life {
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 자식 요소 수평 중앙 정렬 */
+    align-items: stretch; /* 자식 요소 높이 동일하게 설정 */
+    padding: 20px; /* 섹션 내부 여백 */
+}
+
+section#detail > div,
+section#life > div {
+    width: 400px; /* 자식 요소 너비 */
+    padding: 50px; /* 자식 요소 내부 여백 */
+}
+
+section#detail > .img {
+    background-image: url(./images/notebook.jpg); /* 이미지 경로 */
+    background-size: cover; /* 배경 이미지 크기 설정 */
+    background-position: center; /* 배경 이미지 위치 */
+}
+
+section#life > .img {
+    background-image: url(./images/dasdsa.jpg); /* 이미지 경로 */
+    background-size: cover; /* 배경 이미지 크기 설정 */
+    background-position: center; /* 배경 이미지 위치 */
+}
+
+section#detail > .txt > p:nth-of-type(1),
+section#life > .txt > p:nth-of-type(1) {
+    font-size: 1.3rem; /* 첫 번째 텍스트 크기 */
+    font-weight: bolder; /* 첫 번째 텍스트 굵게 설정 */
+}
+
+section#detail > .txt > p:nth-of-type(2),
+section#life > .txt > p:nth-of-type(2) {
+    font-size: 0.8rem; /* 두 번째 텍스트 크기 */
+    line-height: 2; /* 텍스트 줄 간격 */
+    margin: 10px 0; /* 텍스트 외부 여백 */
+}
+
+section#detail > .txt > p:nth-of-type(3),
+section#life > .txt > p:nth-of-type(3) {
+    margin: 0; /* 세 번째 텍스트 외부 여백 제거 */
+}
+
+section#life {
+    display: flex;
+    flex-direction: row-reverse; /* 자식 요소 순서 반대로 설정 */
+}
+
+/* 푸터 영역 스타일 */
+footer {
+    padding: 20px; /* 푸터 내부 여백 */
+    background-color: #2b5566; /* 푸터 배경색 */
+    color: #fff; /* 푸터 텍스트 색상 */
+}
+
+footer a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit; /* 부모 색상 상속 */
+    font-size: 0.8rem; /* 링크 글자 크기 */
+}
+
+footer > nav {
+    display: flex; /* Flexbox 사용 */
+    gap: 30px; /* 섹션 간 간격 */
+    margin-top: 30px; /* 상단 여백 */
+}
+
+footer > nav > div {
+    flex: 1; /* 각 섹션 동일한 너비 */
+}
+
+footer > nav > div > p {
+    border-bottom: 1px solid #fff; /* 섹션 제목 아래 선 */
+}
+
+footer > nav > div > ul {
+    list-style: none; /* 리스트 스타일 제거 */
+}
+
+footer > nav > div > ul > li {
+    padding: 10px 0; /* 리스트 아이템 간 간격 */
+}
+
+/* content.html > main #content 영역 */
+main#content{
+    width: 50%;
+    margin: 0 auto;
+    
+}
+main#content > div{
+    margin: 10px 0;
+}
+main#content > .detail > h2,
+main#about > .title > h2,
+main#notice > .title >h2{
+    border-left: 10px solid palevioletred;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-size: 1.5rem;
+}
+main#content > .detail > p{
+    margin: 20px 0;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+main#content > .detail > img{
+    width: 100%;
+
+}
+
+/* about.html > main#about 영역  */
+main#about > .title{
+    width: 50%;
+    margin: 0 auto;
+}
+
+main#about >.title > p{
+    line-height: 1.5;
+    margin: 10px 0;
+    text-align: justify; 
+}
+main#about > .detail{
+    background-color: #5d9ab2;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+main#about > .detail > *{
+    width: 30%;
+    color: #fff;
+}
+main#about > .detail > table{
+    border-collapse: collapse;   
+    margin: 30px;
+}
+main#about > .detail > table > tbody > tr{
+    border-bottom: 1px solid #fff;
+    padding: 20px 0;
+}
+/* notice. html > #mainnotice 영역 */
+main#notice > .title{
+    width: 50%;
+    margin: 0 auto;
+}
+main#notice > .title > .contact{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 30px 0;
+}
+main#notice > .title > .contact > .item{
+    border: 1px solid #888;
+    flex: 1;
+    text-align: center;
+    padding: 30px;
+}
+main#notice >.title > .contact > .item >div{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #5d9ab2;
+    margin: 0 auto;
+    line-height: 70px;
+}
+main#notice >.title > .contact > .item >div > i{
+    font-size: 2rem;
+    color: #fff;
+}
+
+main#notice >.title > .contact > .item > p{
+    font-size: 1.3rem;
+    font-weight: bolder;
+    margin: 10px 0;
+
+}
+main#notice >.map >h2{
+    text-align: center;
+    background-color: #5d9ab2;
+    color: #fff;
+    padding: 20px 0;
+    
+}
