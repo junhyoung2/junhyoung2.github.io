@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>갤러리</title>
+    <style>
+        * {
+            margin: p;
+            padding: 0;
+        }
+
+        .galley {
+            width: 700px;
+            margin: 20px auto;
+            display: grid;
+            gap: 10px;
+            grid-template-areas:"photo1 photo1 photo2"
+                                "photo1 photo1 photo3"
+                                "photo4 photo5 photo6";
+        }
+
+        .galley img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        img:nth-child(1) {
+            grid-area: photo1;
+        }
+
+        img:nth-child(2) {
+            grid-area: photo2;
+        }
+
+        img:nth-child(3) {
+            grid-area: photo3;
+        }
+
+        img:nth-child(4) {
+            grid-area: photo4;
+        }
+
+        img:nth-child(5) {
+            grid-area: photo5;
+        }
+
+        img:nth-child(6) {
+            grid-area: photo6;
+        }
+        @media screen and (max-width:768px){
+            .galley{
+                grid-template-areas: "photo1"
+                                    "photo2"
+                                    "photo3"
+                                    "photo4"
+                                    "photo5"
+                                    "photo6";
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="galley">
+        <img src="./galley-image/photo-1.jpg" alt="따듯한 차가 있는 겨울 풍경">
+        <img src="./galley-image/photo-2.jpg" alt="남극 펭귄">
+        <img src="./galley-image/photo-3.jpg" alt="눈이 가득 쌓인 풍경">
+        <img src="./galley-image/photo-4.jpg" alt="오로라가 보이는 밤">
+        <img src="./galley-image/photo-5.jpg" alt="눈쌓인 배경">
+        <img src="./galley-image/photo-6.jpg" alt="나뭇가지에 앉아 있는 새">
+    </div>
+</body>
+
+</html>

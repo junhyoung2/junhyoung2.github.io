@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+</head>
+<style>
+    /* 모든 요소의 기본 여백과 패딩 제거, 박스 크기 설정 */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* 화면 전체를 중앙 정렬 */
+    body {
+        height: 100vh; /* 화면 높이를 100%로 설정 */
+        display: flex; /* 플렉스 박스 사용 */
+        justify-content: center; /* 가로 중앙 정렬 */
+        align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    /* 로그인 박스 스타일 */
+    body>div {
+        padding: 50px; /* 내부 여백 */
+        border: 1px solid #aaa; /* 테두리 */
+        border-radius: 10px; /* 모서리를 둥글게 */
+        box-shadow: 0 0 5px #666; /* 그림자 효과 */
+    }
+
+    /* 로그인 제목 스타일 */
+    body>div>h1 {
+        text-align: center; /* 텍스트 중앙 정렬 */
+        margin: 30px 0; /* 위아래 여백 */
+    }
+
+    /* 필드셋 스타일 */
+    fieldset {
+        margin: 30px 0; /* 위아래 여백 */
+        border-radius: 5px; /* 모서리를 둥글게 */
+        padding: 10px; /* 내부 여백 */
+    }
+
+    /* 입력 필드 스타일 */
+    fieldset>input {
+        padding: 5px 10px; /* 내부 여백 */
+        display: block; /* 블록 요소로 설정 */
+        width: 100%; /* 너비를 100%로 설정 */
+    }
+
+    /* 체크박스 스타일 */
+    fieldset>input[type=checkbox] {
+        display: inline-block !important; /* 인라인 블록으로 설정 */
+        width: 20px; /* 체크박스 크기 */
+    }
+
+    /* 입력 필드 포커스 스타일 */
+    fieldset>input:focus {
+        border: 2px solid dodgerblue; /* 포커스 시 테두리 색상 변경 */
+        outline: none; /* 기본 포커스 테두리 제거 */
+    }
+
+    /* 버튼 스타일 */
+    button {
+        width: 100%; /* 버튼 너비를 100%로 설정 */
+        padding: 10px; /* 내부 여백 */
+        background-color: #888; /* 기본 배경색 */
+        color: aliceblue; /* 텍스트 색상 */
+        border-radius: 5px; /* 모서리를 둥글게 */
+        border: none; /* 테두리 제거 */
+        cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    }
+
+    /* 버튼 호버 스타일 */
+    button:hover {
+        background-color: dodgerblue; /* 호버 시 배경색 변경 */
+    }
+</style>
+
+<body>
+    <div>
+        <!-- 로그인 제목 -->
+        <h1>LOGIN</h1>
+        <p>로그인을 하시면 더욱 편하게 이용하실 수 있습니다.</p>
+
+        <!-- 로그인 입력 필드 -->
+        <fieldset>
+            <legend>ID/전화번호</legend> <!-- 필드셋 제목 -->
+
+            <!-- 아이디 또는 전화번호 입력 -->
+            <input type="text" placeholder="아이디 또는 전화번호" autofocus required>
+            <!-- 비밀번호 입력 -->
+            <input type="password" placeholder="비밀번호">
+
+            <!-- 로그인 상태 유지 체크박스 -->
+            <input type="checkbox" id="check">
+            <label for="check">로그인 상태 유지</label>
+
+            <!-- 로그인 버튼 -->
+            <button>로그인</button>
+        </fieldset>
+    </div>
+</body>
+
+</html>

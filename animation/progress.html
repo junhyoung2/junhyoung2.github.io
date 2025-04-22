@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프로그래스바</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrap {
+            width: 600px;
+            border-radius: 10px;
+            background-color: #222;
+            color: #eee;
+            padding: 2rem;
+        }
+
+        .wrap>h1 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .wrap>.item {
+            margin: 20px;
+        }
+
+        .wrap>.item>.txt {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .wrap>.item>.bar {
+            border: 2px solid aqua;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .wrap>.item>.bar>.fill {
+            height: 10px;
+            background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+            transform: scalex(0);
+            transition: all 0.5s;
+            transform-origin: left center;
+            animation: ani 1s;
+        }
+        .wrap>.item:hover .bar>.fill{
+            transform: scaleX(1);
+        }
+        
+        @keyframes ani{
+            0%{
+                width: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>SOFTWARE SKILL</h1>
+        <div class="item">
+            <div class="txt">
+                <p>HTML5</p>
+                <p>90%</p>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width:90%;"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="txt">
+                <p>CSS3</p>
+                <p>80%</p>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width:80%;"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="txt">
+                <p>JQuery</p>
+                <p>65%</p>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width:65%;"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="txt">
+                <p>Photoshop</p>
+                <p>70%</p>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width:70%;"></div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="txt">
+                <p>illustrator</p>
+                <p>82%</p>
+            </div>
+            <div class="bar">
+                <div class="fill" style="width:82%;"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

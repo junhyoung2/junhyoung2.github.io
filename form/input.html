@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그</title>
+</head>
+
+<body>
+    <!-- 폼 시작 -->
+    <form>
+        <!-- 개인정보 입력 섹션 -->
+        <fieldset>
+            <legend>개인정보</legend> <!-- 섹션 제목 -->
+            
+            <!-- 로그인 입력 -->
+            <label>로그인
+                <input type="text" size="5"> <!-- 텍스트 입력 필드, 크기 5 -->
+            </label>
+            <br>
+
+            <!-- 비밀번호 입력 -->
+            <label>
+                비밀번호
+                <input type="password"> <!-- 비밀번호 입력 필드 -->
+            </label>
+            <br>
+
+            <!-- 검색 입력 -->
+            <label>
+                검색
+                <input type="search"> <!-- 검색 입력 필드 -->
+            </label>
+            <br>
+
+            <!-- 전화번호 입력 -->
+            <label>
+                전화번호
+                <input type="tel"> <!-- 전화번호 입력 필드 -->
+            </label>
+        </fieldset>
+
+        <!-- 상품 선택 섹션 -->
+        <fieldset>
+            <legend>상품선택</legend> <!-- 섹션 제목 -->
+            <h3>주문할 상품을 선택해 주세요</h3>
+
+            <!-- 상품 리스트 -->
+            <ul>
+                <!-- 상품 1: 선물용 3kg -->
+                <li>
+                    <input type="checkbox" id="s-3" checked> <!-- 체크박스, 기본 선택됨 -->
+                    <label for="s-3">선물용 3kg</label>
+                    <input type="number" id="c-3" min="1" max="5" value="1" step="2"> <!-- 숫자 입력 필드 -->
+                    <label for="c-3">개 (최대5개)</label>
+                </li>
+
+                <!-- 상품 2: 선물용 4kg -->
+                <li>
+                    <input type="checkbox" id="s-4"> <!-- 체크박스 -->
+                    <label for="s-4">선물용 4kg</label>
+                    <input type="range" id="c-4" min="1" max="10"> <!-- 슬라이더 입력 필드 -->
+                    <label for="c-4">개 (최대 10개)</label>
+                </li>
+
+                <!-- 상품 3: 선물용 5kg -->
+                <li>
+                    <input type="checkbox" id="s-5"> <!-- 체크박스 -->
+                    <label for="s-5">선물용 5kg</label>
+                </li>
+            </ul>
+
+            <!-- 포장 선택 -->
+            <h3>포장선택</h3>
+            <ul>
+                <!-- 포장 옵션: 선물포장 -->
+                <li>
+                    <input type="radio" id="yes" name="gift" checked> <!-- 라디오 버튼, 기본 선택됨 -->
+                    <label for="yes">선물포장</label>
+                </li>
+
+                <!-- 포장 옵션: 선물포장 안함 -->
+                <li>
+                    <input type="radio" id="no" name="gift"> <!-- 라디오 버튼 -->
+                    <label for="no">선물포장 안함</label>
+                </li>
+            </ul>
+        </fieldset>
+
+        <!-- 날짜 입력 -->
+        <input type="date"> <!-- 날짜 선택 필드 -->
+        <input type="month"> <!-- 월 선택 필드 -->
+        <input type="week"> <!-- 주 선택 필드 -->
+
+        <!-- 폼 제출 및 초기화 -->
+        <input type="submit"> <!-- 제출 버튼 -->
+        <input type="reset"> <!-- 초기화 버튼 -->
+    </form>
+</body>
+
+</html>
