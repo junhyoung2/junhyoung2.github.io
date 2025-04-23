@@ -2,14 +2,37 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
-/* **********main **********/
+/* section#box2,
+section#box1 {
+    display: none;
+} */
+
 body {
     font-family: "Orbitron", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    perspective: 900px;
+    background-color: #222;
 }
+input{
+    position: fixed;
+    z-index: 15;
+}
+input[id=check-icon]:checked ~nav{
+    transform: rotateY(15deg);
+    opacity: 1;
+
+
+}
+
+input[id=check-icon]:checked~main{
+    transform: rotateY(-10deg);
+}
+
+
 #menu-icon{
+    cursor: pointer;
     font-size: 2rem;
     position: fixed;
     top: 30px;
@@ -27,11 +50,53 @@ body {
     }
 }
 
+/* nav */
+input[id=menu1]:checked~main>#box1,
+input[id=menu2]:checked~main>#box2,
+input[id=menu3]:checked~main>#box3{
+    opacity: 1;
+}
+input[id=menu1]:checked~main>#box1>p,
+input[id=menu2]:checked~main>#box2>p,
+input[id=menu3]:checked~main>#box3>p{
+    transform: rotateY(0deg);
+}
 
+nav{
+    width:150px;
+    height: 100%;
+    background-color: #ddd;
+    position: absolute; 
+    top:0;
+    left:0;
+    z-index: 2;
+    transform: rotateY(120deg);
+    transform-origin: left center;
+    opacity: 0;
+    transition: all 1s;
+}
+nav>img{
+    display: flex;
+    width: 60%;
+    margin: 7rem auto;
 
+}
+nav>ul>li{
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
+nav>ul>li>label{
+    cursor: pointer;
+}
+
+/* **********main **********/
 main {
     height: 100%;
     position: relative;
+    transform: rotateY(0deg);
+    transform-origin: right center;
+    transition: all 1s;
 }
 
 main>section {
@@ -41,10 +106,11 @@ main>section {
     position: absolute;
     top: 0;
     left: 0;
+    opacity: 0;
 }
 
 
-main>section>p {
+main>section>p{
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -54,6 +120,8 @@ main>section>p {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transform: rotateY(180deg);
+    transition: all 1s;
 }
 
 /* section box1 영역 */
@@ -100,10 +168,6 @@ section#box1>p:nth-child(10) {
 
 }
 
-/* section#box2,
-section#box1 {
-    display: none;
-} */
 
 
 
