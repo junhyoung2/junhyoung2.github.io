@@ -1,0 +1,518 @@
+@charset "UTF-8";
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #164b82;
+}
+
+/* 헤더 영역 */
+header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    height: 80px;
+}
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #14487d;
+    margin: 0;
+    letter-spacing: 5%;
+    cursor: pointer;
+    white-space: nowrap;
+    line-height: 80px;
+}
+header nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 30px;
+    height: 100%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-left: 50px;
+}
+header nav a {
+    text-decoration: none;
+    color: #14487d;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 5%;
+}
+header nav a:hover {
+    color: #1a5ca0;
+}
+header .headerbutton {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 15px;
+}
+header .headerbutton button {
+    background-color: #14487d;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 5%;
+    width: 160px;
+    height: 40px;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s ease, color 0.3s ease,
+        -webkit-transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease,
+        -webkit-transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease,
+        -webkit-transform 0.3s ease;
+}
+header .headerbutton button:hover {
+    background-color: #1a5ca0;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+/* 메뉴 컨테이너 */
+.menu-container {
+    position: relative;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.menu-button {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hidden-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 20px;
+    width: auto;
+}
+
+/* 메인 영역 */
+.main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 80px 60px;
+}
+.main h2 {
+    font-size: 86px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 5%;
+    margin-bottom: 50px;
+}
+.main p {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 5%;
+    margin-bottom: 90px;
+}
+.main button {
+    background-color: #ffd447;
+    border: 2px #254e70;
+    border-radius: 10px;
+    width: 250px;
+    height: 80px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 5%;
+    margin-bottom: 100px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.main button:hover {
+    background-color: #e6be3a;
+    color: #1b1f3b;
+    border-color: #1b1f3b;
+}
+
+/* 컨텐츠 영역 */
+.contents1,
+.contents2,
+.contents3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+}
+.contents1 h2,
+.contents2 h2,
+.contents3 h2 {
+    font-size: 70px;
+    font-weight: bold;
+    letter-spacing: 5%;
+    text-align: center;
+    margin-bottom: 100px;
+    color: #ffffff;
+}
+.contents1 ul,
+.contents2 ul,
+.contents3 ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    list-style: none;
+    gap: 80px;
+    padding: 0;
+    margin: 0;
+}
+.contents1 li,
+.contents2 li,
+.contents3 li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    cursor: pointer;
+}
+.contents1 li img,
+.contents2 li img,
+.contents3 li img {
+    width: 228px;
+    height: 228px;
+}
+.contents1 li p,
+.contents2 li p,
+.contents3 li p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    letter-spacing: 5%;
+}
+
+.contents3 {
+    margin-bottom: 100px;
+}
+
+/* 컨텐츠 애니메이션 */
+.contents1 li,
+.contents2 li,
+.contents3 li {
+    -webkit-animation-name: slideUp;
+    animation-name: slideUp;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes slideUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(60px);
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(60px);
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+/* 푸터 영역 */
+footer {
+    background-color: #fff;
+    padding: 20px 40px;
+    color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+footer h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #14487d;
+    margin-bottom: 20px;
+    letter-spacing: 5%;
+    cursor: pointer;
+}
+footer .footer-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 30px;
+}
+footer .footer-menu li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    text-align: left;
+}
+footer .footer-menu li a {
+    text-decoration: none;
+    color: #14487d;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+footer .footer-menu li a:hover {
+    color: #1a5ca0;
+}
+footer .footer-menu li ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+footer .footer-menu li ul li {
+    margin-bottom: 5px;
+}
+footer .footer-menu li ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: normal;
+}
+footer .footer-menu li ul li a:hover {
+    color: #1a5ca0;
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    header button {
+        margin: 20px auto;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    header h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    header .menu-container {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        width: 100%;
+    }
+    header .menu-container .menu-button {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        top: 10px; /* 헤더 영역 상단에 위치 */
+        right: 20px; /* 헤더 영역 우측에 위치 */
+    }
+    header .menu-container .hidden-menu {
+        display: none;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background-color: #fff;
+        -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        padding: 10px;
+        z-index: 1000;
+        flex-direction: column !important;
+        width: fit-content; /* 또는 max-width: 250px; */
+        min-width: 160px; /* 메뉴가 너무 작지 않게 설정 */
+    }
+    header .menu-container .hidden-menu a {
+      display: block;
+      padding: 10px 20px;
+        text-decoration: none;
+        color: #14487d;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+    header .menu-container .hidden-menu a:hover {
+        background-color: #1a5ca0;
+        color: #ffffff;
+    }
+    header .menu-container:hover .hidden-menu {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex !important; /* 메뉴 버튼 호버 시 리스트 표시 강제 적용 */
+                flex-direction: column !important; /* 세로 정렬 강제 적용 */
+    }
+    header .headerbutton {
+        display: none;
+    }
+    .main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    .main .headerbutton {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .main h2 {
+        font-size: 36px;
+        text-align: center;
+    }
+    .main p {
+        font-size: 18px;
+        text-align: center;
+    }
+    .main button {
+        width: 100%;
+        height: 60px;
+        font-size: 18px;
+        margin: 0 auto;
+    }
+    .main img {
+        width: 300px;
+        height: auto;
+        margin-top: 20px;
+    }
+    .contents1 ul,
+    .contents2 ul,
+    .contents3 ul {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .contents1 li img,
+    .contents2 li img,
+    .contents3 li img {
+        width: 150px;
+        height: 150px;
+    }
+    .contents1 li p,
+    .contents2 li p,
+    .contents3 li p {
+        font-size: 14px;
+    }
+    footer .footer-menu {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        gap: 20px;
+    }
+    footer .footer-menu li {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align: center;
+    }
+    footer .footer-menu li a {
+        font-size: 14px;
+    }
+} /*# sourceMappingURL=style.css.map */
