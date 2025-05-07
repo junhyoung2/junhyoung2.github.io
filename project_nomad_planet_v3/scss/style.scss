@@ -312,11 +312,9 @@ footer {
 @media (max-width: 768px) {
     /* 헤더 영역 */
     header {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+        flex-direction: column;
+        align-items: flex-start;
         padding: 20px;
-        position: relative;
         margin-bottom: 20px;
 
         h1 {
@@ -324,25 +322,22 @@ footer {
             margin-bottom: 10px;
         }
 
-        input[type="checkbox"] {
-            display: none;
-        }
         .menu-container {
             display: flex;
             justify-content: flex-end;
             width: 100%;
             position: relative;
+
             .menu-button {
                 display: block;
                 font-size: 24px;
                 cursor: pointer;
                 position: absolute;
-                top: 10px;
-                right: 20px;
-                z-index: 1001;  
+                top: 10px; /* 헤더 상단에 위치 */
+                right: 20px; /* 헤더 우측에 위치 */
             }
+
             .hidden-menu {
-                flex-direction: column;  
                 display: none;
                 position: absolute;
                 top: 50px;
@@ -350,10 +345,12 @@ footer {
                 background-color: #fff;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 border-radius: 8px;
+                flex-direction: column;
                 padding: 10px;
                 z-index: 1000;
-                width: fit-content;
+                width: fit-content; /* 리스트 영역에 맞게 조정 */
                 min-width: 160px;
+
                 a {
                     display: block;
                     padding: 10px 20px;
@@ -361,19 +358,21 @@ footer {
                     color: $main-color;
                     font-weight: bold;
                     white-space: nowrap;
+
                     &:hover {
                         background-color: $hover-color;
                         color: $white;
                     }
                 }
-                input:checked + .menu-button + .hidden-menu { 
-                    display: flex;
-                  }
             }
 
             &:hover .hidden-menu {
                 display: flex;
             }
+        }
+
+        .headerbutton {
+            display: none; /* PC에서만 노출되도록 숨김 */
         }
     }
 
@@ -407,6 +406,22 @@ footer {
             height: auto;
             margin-top: 20px;
         }
+
+        /* 로그인/회원가입 버튼을 "여행 시작하기" 버튼 하단에 위치 */
+        .headerbutton {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+
+            button {
+                width: 90%;
+                max-width: 300px;
+                height: 50px;
+                font-size: 16px;
+                margin: 0 auto;
+            }
+        }
     }
 
     /* 컨텐츠 영역 */
@@ -424,7 +439,7 @@ footer {
         }
 
         p {
-            font-size: 20px;
+            font-size: 14px;
             text-align: center;
             line-height: 1.5;
         }

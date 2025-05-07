@@ -377,26 +377,19 @@ footer .footer-menu li ul li a:hover {
 @media (max-width: 768px) {
   /* 헤더 영역 */
   header {
-    -webkit-box-orient: horizontal;
+    -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     padding: 20px;
-    position: relative;
     margin-bottom: 20px;
   }
   header h1 {
     font-size: 20px;
     margin-bottom: 10px;
-  }
-  header input[type=checkbox] {
-    display: none;
   }
   header .menu-container {
     display: -webkit-box;
@@ -413,15 +406,10 @@ footer .footer-menu li ul li a:hover {
     font-size: 24px;
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 20px;
-    z-index: 1001;
+    top: 10px; /* 헤더 상단에 위치 */
+    right: 20px; /* 헤더 우측에 위치 */
   }
   header .menu-container .hidden-menu {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     display: none;
     position: absolute;
     top: 50px;
@@ -430,11 +418,15 @@ footer .footer-menu li ul li a:hover {
     -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding: 10px;
     z-index: 1000;
     width: -webkit-fit-content;
     width: -moz-fit-content;
-    width: fit-content;
+    width: fit-content; /* 리스트 영역에 맞게 조정 */
     min-width: 160px;
   }
   header .menu-container .hidden-menu a {
@@ -449,15 +441,13 @@ footer .footer-menu li ul li a:hover {
     background-color: #1a5ca0;
     color: #ffffff;
   }
-  header .menu-container .hidden-menu input:checked + .menu-button + .hidden-menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
   header .menu-container:hover .hidden-menu {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  header .headerbutton {
+    display: none; /* PC에서만 노출되도록 숨김 */
   }
   /* 메인 영역 */
   .main {
@@ -469,6 +459,7 @@ footer .footer-menu li ul li a:hover {
         -ms-flex-align: center;
             align-items: center;
     padding: 40px 20px;
+    /* 로그인/회원가입 버튼을 "여행 시작하기" 버튼 하단에 위치 */
   }
   .main h2 {
     font-size: 28px;
@@ -491,6 +482,24 @@ footer .footer-menu li ul li a:hover {
     height: auto;
     margin-top: 20px;
   }
+  .main .headerbutton {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .main .headerbutton button {
+    width: 90%;
+    max-width: 300px;
+    height: 50px;
+    font-size: 16px;
+    margin: 0 auto;
+  }
   /* 컨텐츠 영역 */
   .contents1,
   .contents2,
@@ -509,7 +518,7 @@ footer .footer-menu li ul li a:hover {
   .contents1 p,
   .contents2 p,
   .contents3 p {
-    font-size: 20px;
+    font-size: 14px;
     text-align: center;
     line-height: 1.5;
   }
