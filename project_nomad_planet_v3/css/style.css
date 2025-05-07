@@ -416,8 +416,8 @@ footer .footer-menu li ul li a:hover {
         min-width: 160px; /* 메뉴가 너무 작지 않게 설정 */
     }
     header .menu-container .hidden-menu a {
-      display: block;
-      padding: 10px 20px;
+        display: block;
+        padding: 10px 20px;
         text-decoration: none;
         color: #14487d;
         font-weight: bold;
@@ -431,7 +431,7 @@ footer .footer-menu li ul li a:hover {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex !important; /* 메뉴 버튼 호버 시 리스트 표시 강제 적용 */
-                flex-direction: column !important; /* 세로 정렬 강제 적용 */
+        flex-direction: column !important; /* 세로 정렬 강제 적용 */
     }
     header .headerbutton {
         display: none;
@@ -478,6 +478,13 @@ footer .footer-menu li ul li a:hover {
         width: 300px;
         height: auto;
         margin-top: 20px;
+    }
+    .contents1 h2,
+    .contents2 h2,
+    .contents3 h2 {
+        font-size: 36px;
+        text-align: center;
+        line-height: 1.5;
     }
     .contents1 ul,
     .contents2 ul,
