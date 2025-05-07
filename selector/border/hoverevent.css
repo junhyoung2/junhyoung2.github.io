@@ -1,0 +1,124 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+/* 아이템 1번 영역 */
+.item1{
+    position: relative;
+}
+.item1:hover:after{
+    width: 100%;
+}
+.item1::after{
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 5px;
+    background-color: tomato;
+    transition: all 0.5s;
+}
+/* 아이템 2번 영역 */
+.item2{
+    position: relative;
+}
+
+.item2:hover::after{
+    width: 100%;
+}
+
+.item2:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 5px;
+    width: 0;
+    background-color: tomato;
+    transition: all 0.5s;
+}
+/* 아이템 3번 영역 */
+
+.item3{
+    position: relative;
+}
+
+
+.item3:hover::after{
+    left: 100%;
+}
+
+.item3:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 5px;
+    background-color: tomato;
+    transition: all 0.5s;
+}
+
+/* 아이템 4번 영역 */
+.item4{
+    position: relative;
+}
+
+
+.item4:hover::after{
+    width: 100%;
+}
+
+.item4:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 5px;
+    width: 0px;
+    background-color: tomato;
+    transition: all 0.5s;
+    transform: translate(-50%, -50%);
+}
+/* 아이템 5번 영역 */
+.item5{
+    position: relative;
+}
+
+
+.item5:hover::after{
+    width: 100%;
+}
+
+.item5:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 5px;
+    width: 0px;
+    background-color: tomato;
+    transition: all 0.5s;
+    transform: translate(-50%);
+}

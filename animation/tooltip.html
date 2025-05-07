@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>툴팁</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrap {
+            display: flex;
+            gap: 10rem;
+        }
+
+        .wrap>.item {
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        .wrap>.item> img:hover + p{
+            opacity: 1;
+        }
+
+        .wrap>.item>img {
+            width: 100%;
+            object-fit: cover;
+        }
+        .wrap>.item>p{
+            position: absolute;
+            width: 130%;
+            top: -100px;
+            left: 50%;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 1rem;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: all 1s;
+        }
+        .wrap>.item>.p::after{
+            content: '';
+            position: absolute;
+            background-color: aquamarine;
+            width: 10px;
+            height: 10px;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="item">
+            <img src="./images/html.png" alt="html">
+            <p>This HTML tutorial contains hundreds of HTML example.</p>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="item">
+            <img src="./images/css.png" alt="css">
+            <p>This css tutorial contains hundreds of css example.</p>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="item">
+            <img src="./images/angular js.png" alt="angular">
+            <p>This angular tutorial contains hundreds of angular example.</p>
+        </div>
+    </div>
+    <div class="wrap">
+        <div class="item">
+            <img src="./images/java script2.png" alt="java">
+            <p>This java script tutorial contains hundreds of java script example.</p>
+        </div>
+    </div>
+</body>
+
+</html>

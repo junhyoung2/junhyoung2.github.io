@@ -1,0 +1,69 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    overflow: hidden; /* 스크롤 방지 */
+}
+
+/* 햄버거 버튼 스타일 */
+.menu-button {
+    width: 50px;
+    height: 40px;
+    display: block;
+    position: fixed;
+    bottom: 20px; /* 화면 하단에서 20px 위 */
+    right: 20px; /* 화면 오른쪽에서 20px 왼쪽 */
+    cursor: pointer;
+    z-index: 1000; /* 바텀시트 위에 표시 */
+}
+
+.menu-button > div {
+    width: 100%;
+    height: 5px;
+    background-color: #222;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+}
+
+#trigger {
+    display: none;
+}
+
+/* 햄버거 버튼 애니메이션 */
+#trigger:checked + .menu-button > div:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+
+#trigger:checked + .menu-button > div:nth-child(2) {
+    opacity: 0;
+}
+
+#trigger:checked + .menu-button > div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* 바텀시트 스타일 */
+.bottombar {
+    width: 100%; /* 화면 전체 너비 */
+    height: 40%; /* 바텀시트 높이 */
+    background-color: #222; /* 배경색 */
+    position: fixed;
+    bottom: -40%; /* 초기 상태에서 화면 아래로 숨김 */
+    left: 0;
+    transition: transform 0.5s ease; /* 부드러운 애니메이션 */
+    transform: translateY(100%); /* 화면 아래로 이동 */
+}
+
+/* 바텀시트가 올라오는 상태 */
+#trigger:checked ~ .bottombar {
+    transform: translateY(0); /* 화면 위로 올라옴 */
+}

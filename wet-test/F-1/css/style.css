@@ -1,0 +1,173 @@
+@charset "utf-8";
+:root{
+    --main-color: rgb(141, 100, 46);
+    --sub-color:#777;
+    --text-color:#666;
+}
+body{
+    background-color: #fff;
+    color:#666
+
+}
+
+
+
+
+header{
+    width: 1340px;
+    margin: 0 auto; /* 가운데정렬 */
+    height: 100px;
+    /* background-color: #999; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header>h1{}
+header>nav{
+    align-self: flex-end;
+    margin-right: 50px;
+    text-align: center;
+}
+header>nav>ul{
+    display: flex;
+}
+header .main-menu a{
+    padding: 5px 20px;
+}
+header .main-menu > a:hover{
+    background-color: var(--main-color);
+    color: #eee;
+}
+header .main-menu > ul{
+    position: absolute;
+    display: none;
+}
+section#slider{
+    height: 350px;
+    background-color: #777;
+}
+section#contents{
+    width: 1340px;
+    margin: 0 auto;
+    /* position: relative;
+    top: -100px; */
+    margin-top: -100px;
+}
+section#contents>.link{
+    height: 100px;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.link>.item{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.link>.item>img {
+    width: 30%;
+}
+
+
+
+
+section#contents> .banner{
+    height: 200px;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+section#contents> .banner> .text{
+    width: 70%;
+}
+
+section#contents> .banner> p{
+    font-size: 8rem;
+}
+
+
+section#contents>.tabs{
+    width: 30%;
+    height: 200px;
+    background-color: #fff;
+}
+section#contents>.tabs>ul>li{
+    display: inline-block;
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid var(--main-color);
+    border-bottom: none;
+
+}
+section#contents>.tabs>ul>li.selected{
+    background-color: var(--main-color);
+    color: #eee;
+}
+
+#contents .notice{
+    z-index: 1;
+}
+#contents .notice li{
+    padding: 5px 0;
+}
+#contents .notice span{
+    display: inline-block;
+}
+#contents .notice li span:nth-child(1){
+    width: 70%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#contents .gallery{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+#contents .tab-detail{
+    position: relative;
+}
+#contents .tab-detail > *{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--main-color);
+}
+
+
+
+footer{
+    width: 1340px;
+    margin: 0 auto;
+    height: 120px;
+    background-color: #fff;
+    display: flex;
+    gap: 10px;
+}
+
+footer>.f-txt > ul{
+    display: flex;
+    align-items: center;
+}
+footer>.f-txt > ul > li{
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #222;
+}
+footer> .f-txt > ul > li:last-child{
+    border-right: none;
+}
+
+footer> .f-txt > p{
+    padding: 20px;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜지션</title>
+    <style>
+        *{margin: 0; padding :0;}
+        .box{
+            margin: 50px;
+            width: 300px;
+            height: 300px;
+            background-color: tomato;
+            transition-property: all;
+            /* transition-duration: 0.5s; */
+            transition: all 0.5s;
+            transition-delay: 0.5s;
+            transition-timing-function: linear;
+        }
+        .box:hover{
+            border: 5px solid yellow;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">BOX</div>
+    
+</body>
+</html>

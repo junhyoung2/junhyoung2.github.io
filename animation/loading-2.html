@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로딩 사각형</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap{
+            width: 100px;
+            height: 100px;
+            /* border: 1px solid #000; */
+            position: relative;
+        }
+        .wrap > span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: tomato;
+            animation: loading 2s infinite;
+        }
+        .wrap > span:nth-child(2){
+            animation-delay:1s ;
+        }
+        @keyframes loading{
+            0%, 100%{
+                top:0;
+                left:0;
+            }
+            25%{
+                top:0;
+                left: calc(100% - 20px);
+                background-color: blue;
+            }
+            50%{
+                top: calc(100% - 20px);
+                left: calc(100% - 20px);
+            }
+            75%{
+                top: calc(100% - 20px);
+                left: 0;
+                background-color: yellowgreen;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <span></span>
+        <span></span>
+    </div>
+    
+</body>
+</html>

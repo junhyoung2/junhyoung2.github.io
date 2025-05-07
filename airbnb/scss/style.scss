@@ -1,0 +1,256 @@
+$main-color: #ff385c;
+$main-hover: #ce2d4a;
+$main-font: #222;
+$gray-font: #b0b0b0;
+$white-font: #eee;
+$font-large: 24px;
+$font-small: 14px;
+
+@mixin flex($justify: center, $align: center, $gap: 1rem) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+@mixin respond($breakpoint) {
+    @if $breakpoint == tablet {
+        @media screen and (min-width: 768px) {
+            @content;
+        }
+    } @else if $breakpoint == pc {
+        @media screen and (min-width: 1024px) {
+            @content;
+        }
+    }
+}
+body {
+    background-color: #eee;
+    color: $main-font;
+}
+header {
+    .mobile-search {
+        @include flex();
+        font-size: $font-small;
+        padding: 1rem 0;
+        border: 1px solid #ddd;
+        box-shadow: 5px 5px 10px $gray-font;
+        width: 90%;
+        margin: 1rem auto;
+        border-radius: 50px;
+        @include respond(tablet) {
+            display: none;
+        }
+        @include respond(pc) {
+            display: none;
+        }
+    }
+    .logo {
+        padding: 2rem;
+        @include flex(space-between, stretch);
+        display: none;
+        @include respond(tablet){
+            display: flex;
+        }
+        @include respond(pc){
+            display: flex;
+        }
+        h1 {
+            font-size: 3rem;
+            i {
+                color: $main-color;
+            }
+        }
+        .menu{
+            @include flex(flex-end);
+            .icon{
+                border: 1px solid #888;
+                border-radius: 20px;
+                padding: 10px 15px;
+                i{padding:0 5px;}
+            }
+        }
+    }
+    .tablet-search{
+        @include respond(tablet){
+            display: block;
+        }
+        @include respond(pc){
+            display: block;
+            position: relative;
+            top: -65px;
+        }
+        display: none;
+        .txt{
+            text-align: center;
+            h3{
+                display: inline-block;
+                font-weight: normal;
+                margin: 0 1rem;
+            }
+        }
+        .bar{
+            width: 80%;
+            margin: 1rem auto;
+            border: 1px solid #888;
+            border-radius: 30px;
+            padding: 15px;
+            position: relative;
+            @include flex(center,center,0);
+            li{
+                padding-left: 2rem;
+                flex: 1;
+                border-right: 1px solid #888;
+                cursor: pointer;
+                &:hover{
+                    background-color: #ddd;
+                }
+                &:first-child,
+                &:nth-child(4){
+                    flex: 2;  
+                }
+                &:nth-child(4){
+                    border: none;
+                }
+                &:last-child{
+                    position: absolute;
+                    right: 10px;
+                    background-color: $main-color;
+                    color: $white-font;
+                    padding: 13px;
+                    border-radius: 50%;
+                }
+                p{
+                    &:first-child{
+                        font-size: $font-small;
+                    }
+                    &:last-child{
+                        color: $gray-font;
+                    }
+                }
+            }
+        }
+    }
+    nav {
+        ul {
+            // @include flex(flex-start, center, 1rem);
+            white-space: nowrap;
+            overflow: hidden;
+            box-shadow: 0 5px 10px #ddd;
+            padding: 1rem;
+            li {
+                display: inline-block;
+                width: 100px;
+                text-align: center;
+                img {
+                    width: 30%;
+                }
+                p {
+                    font-size: $font-small;
+                }
+            }
+        }
+    }
+}
+
+// main 영역
+main {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    .card {
+        max-width: 500px;
+        cursor: pointer;
+        .img {
+            background-size: cover;
+            background-position: center;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            background-color: #b0b0b0;
+            padding: 1rem;
+            @include flex(space-between, stretch);
+            flex-direction: column;
+
+            .top {
+                @include flex(space-between, center);
+                .guest {
+                    background-color: #fff;
+                    border-radius: 20px;
+                    font-size: $font-small;
+                    padding: 10px 20px;
+                }
+                i {
+                    font-size: $font-large;
+                    color: $white-font;
+                }
+            }
+            .center {
+                @include flex(space-between, center);
+                opacity: 0;
+                i {
+                    font-size: $font-large;
+                    color: $white-font;
+                }
+            }
+            &:hover .center{
+                opacity: 1;
+            }
+            .bottom {
+                text-align: center;
+                span {
+                    display: inline-block;
+                    width: 10px;
+                    height: 10px;
+                    background-color: rgba(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                }
+            }
+        }
+        .txt {
+            margin: 1rem 0;
+            div {
+                @include flex(space-between, center);
+                h2 {
+                    font-size: 16px;
+                }
+                p {
+                    color: $main-font;
+                }
+            }
+            p {
+                color: $gray-font;
+                span {
+                    color: $main-font;
+                }
+            }
+        }
+    }
+}
+// FOOTER 영역
+
+footer {
+    padding: 2rem;
+    h2,
+    h3 {
+        font-weight: normal;
+        margin: 1rem 0;
+    }
+    h3 {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+        span {
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #222;
+        }
+    }
+    ul {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        font-size: $font-small;
+    }
+    p {
+        padding: 1rem 0;
+        text-align: center;
+    }
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yes24북</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 800px;
+        }
+        .book>.page{
+            transform-style: preserve-3d;
+            width: 100%;
+            height: 100%;
+        }
+        .book>.page>div{
+            width: 200px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateZ(25px);
+            backface-visibility: hidden;
+        }
+        .book>.page>.front{
+            background-color: tomato;    
+        }
+        .book>.page>.back{
+            background-color: yellowgreen;
+            transform: rotateY(180deg) translatez(25px);
+        }
+        .book>.side{
+            left: -25px;
+            width: 50px;
+            height: 300px;
+            background-color: aqua;
+            transform: rotateY(-90deg);
+            /* transform-origin: center right; */
+        }
+        .book{
+            position: relative;
+            width: 200px;
+            height: 300px;
+            transition: all 0.5s;
+            transform-style: preserve-3d;
+            /* transform: rotateY(45deg); */
+            box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .book:not(.flipped):hover{
+        transform: rotateY(40deg);
+        }
+        
+        
+        /* .book:hover{
+            transform: rotateY(40deg);
+        } */
+
+
+        .book.flipped{
+            transform: rotateY(180deg);
+        }
+        .front, .back, .side{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page">
+            <div class="front">FRONT</div>
+            <div class="back">BACK</div>
+        </div>
+        <div class="side">SIDE</div>
+    </div>
+    <script>
+        const book = document.querySelector(".book");
+        book.addEventListener("click",()=>{
+            book.classList.toggle("flipped");
+        });
+    </script>
+</body>
+</html>

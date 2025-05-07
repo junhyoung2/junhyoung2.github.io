@@ -1,0 +1,184 @@
+@charset "utf-8";
+:root{
+    --text-light-color:#eee;
+    --font-size:14px;
+    --button-color:#3e6ae1;
+}
+
+/* mobile size가 기본으로 */
+html{
+    font-size: 16px;
+}
+
+body {
+    background-color: rgb(119, 164, 201);
+}
+
+/* header 영역 */
+header{
+    height:100%;
+    position: relative;
+    background-image: url(../assets/images/model_y_mobile.jpg);
+    background-position: center;
+    background-size: cover;
+
+}
+header>nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-light-color);
+    font-size: var(--font-size);
+    padding: 10px 0;
+}
+
+header>nav>h1 {
+    padding: 10px 20px;
+    letter-spacing: 10px;
+}
+
+
+header>nav>p {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 7px 20px;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+
+header > nav >ul{
+    display: none;
+}
+
+header>nav>ul>li{
+    display: inline-block;
+    padding: 7px;
+}
+
+/* max : 0~1023px
+min : 1024~px */
+
+/* @media screen and (min-width:769px) and (max-width:1024px){
+    
+} */
+
+/* ----------페이지별 h2 타이틀----------- */
+.title{
+    color:var(--text-light-color);
+    font-size: 2rem;
+    text-align: center;
+}
+
+
+
+/* button style */
+.btn-color{
+    background-color: var(--button-color);
+    color: var(--text-light-color);
+}
+.btn-white{
+    background-color: var(--text-light-color);
+    color: #222;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 50px;
+}
+
+.btn >p{
+    width: 200px;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+/* section 공통 스타일 */
+section{
+    height: 100%;
+    position: relative;
+}
+
+section >.wrap{
+    color: var(--text-light-color);
+    text-align: center;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+section>video{
+    object-fit: cover;
+    aspect-ratio: 9/16;
+    width: 100%;
+    height: 100%;
+}
+
+section>.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+section:nth-of-type(2){
+    background-image: url(../assets/images/Homepage-Model-3-Mobile-US.png);
+    background-size: cover;
+    background-position: center;
+}
+
+section > .last {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100px;
+}
+
+section > .last  > .title{
+    font-size: 1.3rem;
+}
+
+
+/* footer style  */
+footer{
+    background-color: #fff;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* --------Desktop section-------------- */
+
+@media screen and (min-width:1024px) {
+    html{
+        font-size: 20px;
+    }
+    header{
+        background-image:url(../assets/images/model_y_desktop.jpg);
+    }
+    header > nav > p {
+        /* display: none;
+        visibility: hidden;
+        visibility: visible; */
+        display: none;
+    }
+    header > nav >ul{
+        display: block;
+    }
+    section>video{
+        aspect-ratio: 16/9;
+    }
+    section:nth-of-type(2){
+        background-image: url(../assets/images/Homepage-Model-3-Desktop-US.jfif)
+    }
+}    

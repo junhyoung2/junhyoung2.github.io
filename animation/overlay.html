@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세설명</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrap {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .wrap>div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #888;
+        }
+
+        .wrap>div:nth-child(1) {
+            background-image: url(./bbq1.jpg);
+            background-size: cover;
+            /* 이미지가 컨테이너를 채우도록 설정 */
+            background-position: center;
+            /* 이미지를 중앙에 배치 */
+            background-repeat: no-repeat;
+            /* 이미지 반복 방지 */
+        }
+
+        .wrap>div:nth-child(2) {
+            background-image: url(./bbq2.jpg);
+            background-size: cover;
+            /* 이미지가 컨테이너를 채우도록 설정 */
+            background-position: center;
+            /* 이미지를 중앙에 배치 */
+            background-repeat: no-repeat;
+            /* 이미지 반복 방지 */
+        }
+
+        .wrap>div:nth-child(3) {
+            background-image: url(./bbq3.jpg);
+            background-size: cover;
+            /* 이미지가 컨테이너를 채우도록 설정 */
+            background-position: center;
+            /* 이미지를 중앙에 배치 */
+            background-repeat: no-repeat;
+            /* 이미지 반복 방지 */
+        }
+
+        .wrap>div>.caption {
+            background-color: rgba(0, 0, 0, 0.5s);
+            height: 100%;
+            text-align: center;
+            padding: 1.5rem;
+            box-sizing: border-box;
+            color: #000000;
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        .wrap>div>.caption:hover {
+            opacity: 1;
+        }
+
+        .wrap>div>.caption>* {
+            margin: 1rem 0;
+        }
+
+        .wrap>div>.caption>a {
+            background-color: teal;
+            padding: 5px 10px;
+            border-radius: 3pc;
+        }
+
+        .wrap>div>.caption>a:hover {
+            background-color: #fff;
+            color: #000;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div>
+            <div class="caption">
+                <h2>Lorem ipsum</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, suscipit!</p>
+                <p>Price : $12 → $10</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div>
+            <div class="caption">
+                <h2>Lorem ipsum</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, suscipit!</p>
+                <p>Price : $15 → $13</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div>
+            <div class="caption">
+                <h2>Lorem ipsum</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, suscipit!</p>
+                <p>Price : $20 → $18</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
