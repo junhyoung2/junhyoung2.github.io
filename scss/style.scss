@@ -1,0 +1,428 @@
+$main-color: #14487d;
+$hover-color: #1a5ca0;
+$white: #ffffff;
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #164b82;
+}
+
+/* 헤더 영역 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;  
+    background-color: $white;
+    height: 80px;
+
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: $main-color;
+        margin: 0;
+        letter-spacing: 5%;
+        // width: 295px;
+        // height: 48px;
+        cursor: pointer;
+        white-space: nowrap;
+        line-height: 80px
+    }
+
+    nav {
+        display: flex;
+        gap: 30px;
+        height: 100%;
+        align-items: center;
+        margin-left: 50px;
+
+        a {
+            text-decoration: none;
+            color: $main-color;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 5%;
+
+            &:hover {
+                color: $hover-color;
+            }
+        }
+    }
+
+    .headerbutton {
+        display: flex;
+        gap: 15px;
+
+        button {
+            background-color: $main-color;
+            color: $white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 5%;
+            width: 160px;
+            height: 40px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+            &:hover {
+                background-color: $hover-color;
+                transform: scale(1.05);
+            }
+        }
+    }
+}
+
+/* 메뉴 컨테이너 */
+.menu-container {
+    position: relative;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.menu-button {
+    display: none; 
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.hidden-menu {
+    display: flex; 
+    gap: 20px;
+    width: auto;
+}
+
+/* 메인 영역 */
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+
+    h2 {
+        font-size: 86px;
+        font-weight: bold;
+        color: $white;
+        letter-spacing: 5%;
+        margin-bottom: 50px;
+    }
+
+    p {
+        font-size: 40px;
+        font-weight: bold;
+        color: $white;
+        letter-spacing: 5%;
+        margin-bottom: 90px;
+    }
+
+    button {
+        background-color: #ffd447;
+        border: 2px #254e70;
+        border-radius: 10px;
+        width: 250px;
+        height: 80px;
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: 5%;
+        margin-bottom: 100px;
+        margin: 0 auto;
+        
+        cursor: pointer;
+
+        &:hover {
+            background-color: #e6be3a;
+            color: #1b1f3b;
+            border-color: #1b1f3b;
+        }
+    }
+}
+
+/* 컨텐츠 영역 */
+.contents1,
+.contents2,
+.contents3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    border-radius: 10px;
+
+    h2 {
+        font-size: 70px;
+        font-weight: bold;
+        letter-spacing: 5%;
+        text-align: center;
+        margin-bottom: 100px;
+        color: $white;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style: none;
+        gap: 80px;
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+        padding: 20px;
+        background-color: $white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        cursor: pointer;
+
+        img {
+            width: 228px;
+            height: 228px;
+            border: none;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000;
+            letter-spacing: 5%;
+        }
+    }
+}
+.contents3{
+    margin-bottom: 100px ;
+}
+/* 컨텐츠 애니메이션 */
+.contents1 li,
+.contents2 li,
+.contents3 li {
+    animation-name: slideUp;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 푸터 영역 */
+footer {
+    background-color: #fff;
+    padding: 20px 40px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: $main-color;
+        margin-bottom: 20px;
+        letter-spacing: 5%;
+        cursor: pointer;
+    }
+
+    .footer-menu {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 30px;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+
+            a {
+                text-decoration: none;
+                color: $main-color;
+                font-weight: bold;
+                margin-bottom: 10px;
+
+                &:hover {
+                    color: $hover-color;
+                }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    margin-bottom: 5px;
+
+                    a {
+                        text-decoration: none;
+                        color: #000;
+                        font-weight: normal;
+
+                        &:hover {
+                            color: $hover-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        button{
+            margin: 20px auto;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .menu-container {
+            justify-content: flex-end;
+            width: 100%;
+
+            .menu-button {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            .hidden-menu {
+                display: none;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background-color: #fff;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                flex-direction: row; 
+                padding: 10px;
+                z-index: 1000;
+
+                a {
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    color: $main-color;
+                    font-weight: bold;
+                    white-space: nowrap; 
+
+                    &:hover {
+                        background-color: $hover-color;
+                        color: $white;
+                    }
+                }
+            }
+
+            &:hover .hidden-menu {
+                display: flex;
+            }
+        }
+
+        .headerbutton {
+            display: none; 
+        }
+    }
+
+    .main {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+
+        .headerbutton {
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px; 
+        }
+
+        h2 {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            height: 60px;
+            font-size: 18px;
+            margin: 0 auto; 
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            margin-top: 20px;
+        }
+    }
+
+    .contents1,
+    .contents2,
+    .contents3 {
+        ul {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        li {
+            img {
+                width: 150px;
+                height: 150px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+
+    footer {
+        .footer-menu {
+            flex-direction: column;
+            gap: 20px;
+
+            li {
+                align-items: center;
+                text-align: center;
+
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
