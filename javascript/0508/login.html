@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼 텍스트 변경</title>
+</head>
+<body>
+    <button>버튼 텍스트</button>
+    <script>
+        // const islogin = true;
+        const islogin = false;
+        const buttontext = islogin ? "로그아웃" : "로그인";
+        const elem = document.querySelector("button");
+        elem.textContent = buttontext;  
+    </script>
+    
+</body>
+</html>  

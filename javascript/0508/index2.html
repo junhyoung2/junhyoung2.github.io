@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>사용자입력</title>
+    </head>
+    <body>
+        <script>
+            //출력 : console.log("")
+            //document.write
+            //팝업 : alert, prompt, confirm
+            // let value = prompt("메시지입력");
+            // if(value !=null){
+            //     document.write(value);
+            // }
+
+            let value=confirm("확인하셨습니까?");
+            // document.write(value);
+            if(value ){
+                document.write("확인하였습니다.")
+            }else{
+                document.write("취소하였습니다.")
+            }
+        </script>
+    </body>
+</html>
