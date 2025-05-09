@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>과목 선택</title> <!-- 브라우저 탭 제목 -->
+    </head>
+    <body>
+        <script>
+            // 사용자에게 과목 선택을 위한 입력창(prompt)을 띄움
+            let subject = prompt(
+                "신청할 과목을 선택하세요. 1. HTML, 2. CSS, 3.Java script"
+            );
+
+            // 사용자가 입력한 값의 타입을 콘솔에 출력 (문자열인지 확인용)
+            console.log(typeof subject); // 항상 string 또는 null (취소 시)
+
+            // 사용자가 '취소'를 누르지 않았을 경우에만 switch 실행
+            if (subject !== null) {
+                switch (subject) {
+                    case "1":
+                        // 1을 입력했을 때 HTML 선택 메시지 출력
+                        document.write("HTML 과목을 선택했습니다.");
+                        break;
+                    case "2":
+                        // 2를 입력했을 때 CSS 선택 메시지 출력
+                        document.write("CSS 과목을 선택했습니다.");
+                        break;
+                    case "3":
+                        // 3을 입력했을 때 JavaScript 선택 메시지 출력
+                        document.write("Java script 과목을 선택했습니다.");
+                        break;
+                    default:
+                        // 그 외 숫자 또는 잘못된 입력
+                        document.write("잘못 입력했습니다.");
+                }
+            }
+            // 사용자가 취소(null)했을 경우 아무 동작도 하지 않음
+        </script>
+    </body>
+</html>
