@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 한글 깨짐 방지 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>함수 사용</title>
+    </head>
+    <body>
+        <!-- 숫자를 input으로 2개를 입력 > 계산이라는 버튼을 누르면 값이 출력 -->
+        <!-- 사용자가 두 개의 숫자를 입력할 수 있는 입력 창 -->
+        <input type="number" placeholder="숫자1" />
+        <input type="number" placeholder="숫자2" />
+        <!-- "더하기" 버튼을 누르면 아래 정의된 calc 함수가 실행됨 -->
+        <button onclick="calc();">더하기</button>
+        <!-- 결과가 출력될 위치 (초기 텍스트: "결과 :") -->
+        <p>결과 :</p>
+    </body>
+    <script>
+        /*
+    1. 더하기 버튼을 클릭했을 때 함수를 정의
+       → 버튼 클릭 시 실행되는 calc 함수 정의
+
+    2. input에 저장된 숫자 정보를 가져오기
+       → 사용자가 입력한 두 숫자 값을 가져옴 (value 속성)
+
+    3. 가져온 숫자를 더하기
+       → 문자열 형태인 값을 Number()로 변환 후 더함
+
+    4. 결과값을 p태그에 출력하기
+       → <p> 요소의 텍스트 내용을 result로 업데이트
+*/
+        const calc = () => {
+            // calc 함수 정의 시작
+            console.log("두 수 더하기 함수 실행"); // 디버깅용 로그 출력
+
+            // 첫 번째 input 요소를 선택 (body의 첫 번째 input 요소)
+            const num1 = document.querySelector("input:nth-child(1)");
+
+            // 두 번째 input 요소를 선택 (두 번째 input 요소)
+            const num2 = document.querySelector("input:nth-child(2)");
+
+            // 두 입력값을 숫자로 변환 후 더한 결과를 result에 저장
+            const result = Number(num1.value) + Number(num2.value);
+
+            // 결과를 출력할 <p> 요소 선택
+            const pelem = document.querySelector("p");
+
+            // <p> 태그의 기존 내용에 result 값을 이어붙여 출력
+            // 예: "결과 :" → "결과 :8"
+            pelem.textContent = pelem.textContent + result;
+        };
+        
+    </script>
+</html>

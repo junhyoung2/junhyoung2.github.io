@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 한글 깨짐 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 모바일 최적화 -->
+    <title>while문 실행</title> <!-- 브라우저 탭 제목 -->
+</head>
+<body>
+    <script>
+        let input = '';  // 사용자 입력 값을 저장할 변수 초기화
+
+        // while문: input 값이 'q'가 아닐 동안 계속 반복
+        while (input !== 'q') {
+            // 사용자로부터 값을 입력 받음 (취소를 누르면 null이 들어갈 수 있음)
+            input = prompt("계속하려면 값을 입력하세요. : q 입력 시 종료");
+        }
+
+        // 반복문이 끝난 뒤 메시지 출력
+        document.write("입력을 종료하였습니다.");
+    </script>
+</body>
+</html>

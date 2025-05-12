@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 문자 인코딩 설정 (한글 깨짐 방지) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 모바일 대응 -->
+    <title>let-answer</title>
+</head>
+<body>
+    <script>
+        let answer = 'no';  // 초기값을 'no'로 설정
+
+        // while문: 조건을 먼저 검사하고, 조건이 참일 경우만 실행됨
+        while (answer === 'yes') {
+            alert("while 실행");
+            answer = prompt("계속하려면 yes");
+        }
+
+        // do...while문: 일단 한 번은 실행한 후 조건을 검사함
+        do {
+            alert("do-while문 실행");
+            answer = prompt("계속하려면 yes");
+        } while (answer === 'yes');
+    </script>
+</body>
+</html>

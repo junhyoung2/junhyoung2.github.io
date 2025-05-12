@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 한글 깨짐 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 사용</title>
+</head>
+<body>
+    <!-- 각각의 버튼 클릭 시 chagebg() 함수 호출, 인자로 색상 전달 -->
+    <button onclick="chagebg('tomato');">토마토색</button>
+    <button onclick="chagebg('skyblue');">하늘색</button>
+    <button onclick="chagebg('yellow');">노란색</button>
+
+    <script>
+        // chagebg 함수 정의: 인자로 받은 color 값을 배경색으로 설정
+        const chagebg = (color) => {
+            // document.body → 전체 웹 문서의 <body> 요소
+            // .style.backgroundColor → 배경색 변경
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</body>
+</html>

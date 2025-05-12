@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자 맞추기 게임 - 사용자가 비밀 숫자 맞추기</title>
+</head>
+<body>
+    <script>
+        // 1부터 10 사이의 랜덤한 정수 생성
+        let secret = Math.floor(Math.random() * 10) + 1;
+
+        let input;
+
+        // 사용자가 정답을 맞출 때까지 반복
+        while (secret != input) {
+            input = prompt('1~10 사이의 숫자를 맞춰보세요.');
+        }
+
+        // 정답을 맞췄을 때 메시지 출력
+        document.write("정답입니다.");
+    </script>
+</body>
+</html>

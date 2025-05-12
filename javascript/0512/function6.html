@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 한글 깨짐 방지 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 일치 확인</title>
+</head>
+<body>
+    <!-- 비밀번호 입력 필드: 첫 번째 입력 -->
+    <input type="password" placeholder="비밀번호" id="pw1">
+
+    <!-- 비밀번호 확인 입력 필드: 두 번째 입력 -->
+    <input type="password" placeholder="비밀번호 확인" id="pw2">
+
+    <!-- 확인 버튼: 클릭 시 checkpassword 함수 실행 -->
+    <button onclick="checkpassword()">확인</button>
+
+    <!-- 결과를 표시할 영역 -->
+    <p id="result"></p>
+
+    <script>
+    // 1. 확인 버튼 클릭 시 실행되는 함수 정의
+    const checkpassword = () => {
+        // 2. 첫 번째 input 요소에서 입력된 값을 가져옴
+        const pw1 = document.querySelector("#pw1").value;
+
+        // 3. 두 번째 input 요소에서 입력된 값을 가져옴
+        const pw2 = document.querySelector("#pw2").value;
+
+        // 4. 결과를 표시할 <p> 요소 선택
+        const pelem = document.querySelector("#result");
+
+        // 5. 결과 메시지를 담을 변수 초기화
+        let msg = '';
+
+        // 6. 입력된 두 비밀번호가 같은지 비교
+        if (pw1 === pw2) {
+            // 같으면 일치 메시지 저장
+            msg = "비밀번호가 일치합니다.";
+        } else {
+            // 다르면 불일치 메시지 저장
+            msg = "비밀번호가 다릅니다.";
+        }
+
+        // 7. <p> 요소에 결과 메시지 출력
+        pelem.textContent = msg;
+    }
+    </script>
+</body>
+</html>

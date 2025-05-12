@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 한글이 깨지지 않도록 문자 인코딩 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const PWD = "1234";  // 올바른 비밀번호를 상수로 지정
+        let input;           // 사용자 입력값을 저장할 변수
+
+        // 비밀번호가 맞을 때까지 반복
+        do {
+            input = prompt("비밀번호를 입력하세요");  // 사용자로부터 비밀번호 입력 받기
+        } while (PWD !== input);  // 입력값이 비밀번호와 다르면 반복
+
+        // 비밀번호를 맞췄을 경우
+        document.write("접속성공");
+    </script>
+</body>
+</html>

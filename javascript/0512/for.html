@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8"> <!-- 한글이 깨지지 않도록 문자 인코딩 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 모바일 반응형 설정 -->
+    <title>for</title> <!-- 브라우저 탭에 표시될 제목 -->
+</head>
+<body>
+    <script>
+        // 바깥쪽 반복문: 줄(row) 반복 (총 3줄)
+        for (let i = 0; i < 3; i++) {
+
+            // 안쪽 반복문: 한 줄에 '@' 기호를 5개 출력
+            for (let j = 0; j < 5; j++) {
+                document.write('@');  // '@' 문자 출력
+            }
+
+            // 한 줄 출력이 끝나면 줄바꿈 (HTML의 <br> 태그 사용)
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

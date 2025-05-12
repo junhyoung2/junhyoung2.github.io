@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 한글 깨짐 방지 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dom</title>
+    </head>
+    <body>
+        <!-- id로 접근할 h1 태그 -->
+        <h1 id="title">dom 구조</h1>
+
+        <!-- 태그 이름으로 접근할 버튼 2개 -->
+        <button>클릭</button>
+        <button>처음</button>
+
+        <!-- 클래스명으로 접근할 p 태그 -->
+        <p class="txt" onclick="changetext()">문단을 입력합니다.</p>
+
+        <script>
+            // id가 'title'인 요소를 가져옴
+            const h1elem = document.getElementById("title");
+
+            // // 요소 전체 로그 출력
+            // console.log(h1elem);
+
+            // // 요소의 자세한 속성 구조 출력
+            // console.dir(h1elem);
+
+            // // 변수의 타입 출력 (object)
+            // console.log(typeof(h1elem));
+
+            // // 해당 요소의 id 출력
+            // console.log(h1elem.id);
+
+            // // h1 요소의 텍스트 내용 출력
+            // console.log(h1elem.innerText);
+
+            // // innerText: HTML 태그가 텍스트로 출력됨 (태그 해석 X)
+            // h1elem.innerText = "<i>기울이기추가</i>";
+
+            // // innerHTML: HTML 태그가 실제로 적용됨 (기울임 처리 O)
+            // h1elem.innerHTML = "<i>기울이기추가</i>";
+
+            // // 잘못된 속성 이름 (innerContent는 존재하지 않음)
+            // h1elem.innercontent = "<i>기울이기추가</i>"; // ❌ 무효 코드
+
+            // // tagName으로 모든 버튼을 가져옴 (HTMLCollection 반환)
+            // const btnelem = document.getElementsByTagName("button");
+            // console.log(btnelem[0]); // 첫 번째 버튼 출력
+
+            // // querySelector는 첫 번째 일치하는 요소 1개만 가져옴
+            // const titleelem = document.querySelector("#title");
+            // console.log(titleelem); // titleelem은 단일 요소 (배열 아님)
+
+            // // querySelectorAll은 모든 일치하는 요소를 NodeList로 반환
+            // const buttonelem = document.querySelectorAll("button");
+            // console.log(buttonelem); // NodeList 형태로 버튼 전체 출력
+
+            // // 클래스 이름으로 접근 (HTMLCollection 반환)
+            // const pelem = document.getElementsByClassName("txt");
+            // console.log(pelem); // 클래스가 "txt"인 모든 요소 (배열처럼 보임)
+
+            // querySelector는 클래스 중 첫 번째 요소만 반환
+            const pelem = document.querySelector(".txt");
+            console.log(pelem); // 단일 요소 출력
+
+            //함수, 화살표 함수
+            //작성 소스가 굉장히 많음, 반복도 많음
+            //해야할 일들, 기능별로 명령어들을 묶어 놓은 것을 함수
+
+            // changetext: 문단의 글자 색상을 파란색으로 바꾸는 함수
+            const changetext = () => {
+                // 선택된 요소(pelem)의 글자 색상(style.color)을 파란색("blue")으로 설정
+                pelem.style.color = "blue";
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산기</title>
+</head>
+<body>
+    <h2>나이 계산기</h2>
+    <label for="birthday">생년월일 입력 (YYYY-MM-DD):</label>
+    <input type="date" id="birthday">
+    <button onclick="calculateAge()">나이 계산</button>
+    <p id="result"></p>
+
+    <script>
+        const calculateAge = () => {
+            const birthday = document.querySelector("#birthday").value;
+
+            if (!birthday) {
+                alert("생년월일을 입력해주세요!");
+                return;
+            }
+
+            const birthDate = new Date(birthday);
+            const today = new Date();
+
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const month = today.getMonth() - birthDate.getMonth();
+
+            if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            const resultElem = document.querySelector("#result");
+            resultElem.textContent = `당신의 나이는 ${age}살입니다.`;
+
+            let ageMessage = "";
+            if (age < 18) {
+                ageMessage = "아직 미성년자입니다.";
+            } else if (age >= 18 && age < 65) {
+                ageMessage = "성인입니다.";
+            } else {
+                ageMessage = "노년층입니다.";
+            }
+
+            const ageMessageElem = document.createElement("p");
+            ageMessageElem.textContent = ageMessage;
+            resultElem.appendChild(ageMessageElem);
+        }
+    </script>
+</body>
+</html>
