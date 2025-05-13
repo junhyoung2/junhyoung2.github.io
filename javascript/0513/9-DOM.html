@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 트리</title>
+</head>
+<body>
+    <!-- 페이지의 제목을 나타내는 h1 요소 -->
+    <h1>I Can do it</h1>
+
+    <!-- 이미지 요소. src는 이미지 파일의 경로, alt는 대체 텍스트 -->
+    <img src="./num_img/img-1.png" alt="1">
+
+    <!-- div 안에 p 요소가 포함되어 있음 -->
+    <div>
+        <p>이미지를 가져왔습니다.</p>
+    </div>
+
+    <script>
+        // img 요소를 선택해서 $img 변수에 저장
+        const $img = document.querySelector("img");
+
+        // div 요소를 선택해서 $div 변수에 저장
+        const $div = document.querySelector("div");
+
+        // div 안에 있는 p 요소를 선택해서 $p 변수에 저장
+        const $p = $div.querySelector("p");
+
+        // 콘솔에 $p 요소를 출력 (디버깅용)
+        console.log($p);
+    </script>
+</body>
+</html>

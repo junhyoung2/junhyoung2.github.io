@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 숫자 2개를 입력받는 input 요소 -->
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <!-- 버튼을 클릭하면 비교 동작을 실행 -->
+    <button>비교</button>
+    <!-- 결과를 출력할 부분 -->
+    <p>결과:</p>
+    <script>
+        /*
+            1. input 태그를 이용해서 숫자를 2개 입력받음
+            2. '비교'라는 버튼을 클릭하면 작은 숫자를 출력
+        */
+        // 버튼 요소를 선택하여 변수에 저장
+        const $btn = document.querySelector("button");
+        // 작은 수를 저장할 변수 선언
+        let small = null;
+        // 비교 및 결과 출력 함수 정의
+        const result = () => {
+            // input 요소에서 값(value)을 가져옴 (기본적으로 문자열로 읽힘)
+            const $num1 = document.querySelector('#num1').value;
+            const $num2 = document.querySelector('#num2').value;
+            // 문자열을 숫자로 변환 (비교를 정확히 하기 위해 필요)
+            const num1 = Number($num1);
+            const num2 = Number($num2);
+            // 삼항 연산자를 사용하여 작은 수를 판단
+            small = (num1 > num2) ? num2 : num1;
+            // 결과를 p 태그에 출력
+            document.querySelector("p").textContent = `결과:${small}이 작은수입니다.`;
+        }
+        // 버튼 클릭 시 result 함수 실행
+        $btn.onclick = result;
+    </script>
+</body>
+</html>

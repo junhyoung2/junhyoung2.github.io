@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>인라인스크립트</title>
+        <style>
+            /* 버튼 스타일 정의 */
+            button {
+                background-color: tomato; /* 버튼 배경색 */
+                color: #000; /* 버튼 텍스트 색상 */
+                width: 100px; /* 버튼 너비 */
+                height: 100px; /* 버튼 높이 */
+                cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+                font-size: 1rem; /* 버튼 텍스트 크기 */
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 버튼 요소 -->
+        <button>클릭!</button>
+        <!-- 이미지 요소 -->
+        <img src="./num_img/img-1.png" alt="1" />
+        <!-- JavaScript 코드 -->
+        <script>
+            // 이미지 요소를 선택하여 변수에 저장
+            const $img = document.querySelector("img"); 
+            console.log($img); // 선택된 이미지 요소를 콘솔에 출력
+
+            // 이미지 번호를 관리하는 변수 선언 및 초기화
+            let num = 1;
+
+            // 이미지 클릭 시 실행될 함수 정의
+            const imgclick = () => {
+                // 기존 주석: num++; 
+                // 주석 해석: num 값을 1 증가시킴
+
+                // 기존 주석: if (num > 5) { num = 1; }
+                // 주석 해석: num 값이 5를 초과하면 다시 1로 초기화
+
+                // 기존 주석: $img.src = `./num_img/img-${num}.png`;
+                // 주석 해석: num 값에 따라 이미지 경로를 업데이트
+
+                // 현재 코드: 삼항 연산자를 사용하여 num 값을 업데이트하고 이미지 경로 변경
+                $img.src = `./num_img/img-${(num = num >= 5 ? 1 : num + 1)}.png`;
+                // 설명:
+                // - num >= 5 ? 1 : num + 1
+                //   - num 값이 5 이상이면 1로 초기화
+                //   - 그렇지 않으면 num 값을 1 증가
+                // - $img.src: 이미지 요소의 src 속성을 업데이트하여 새로운 이미지를 표시
+            };
+
+            // 이미지 클릭 이벤트에 imgclick 함수 연결
+            $img.onclick = imgclick;
+        </script>
+    </body>
+</html>

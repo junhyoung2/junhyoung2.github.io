@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이벤트 등록</title>
+    </head>
+    <body>
+        <button>클릭</button>
+        <script>
+            
+            //버튼을 클릭하면 body의 백그라운드 색상을 변경
+            
+            let idx = 0;
+            const colors =['tomato','yellow','green','blue'];
+            
+            // console.log(colors);
+            
+            const $btn = document.querySelector("button");
+            const changeBG = () => {
+                document.body.style.backgroundColor = colors[idx];
+                idx++;
+                if(idx >= colors.length){
+                    idx=0;
+                }
+            }
+            $btn.addEventListener("click",changeBG);
+
+
+            // $btn.onclick = changeBG;
+            // $btn.onclick =()=>{
+            //    document.body.style.backgroundColor="tomato";}
+            
+
+            //DOM? document object model(체계적으로 정리 트리형태)
+
+        </script>
+    </body>
+</html>
