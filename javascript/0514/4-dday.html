@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>특정일까지 남은 시간 계산기</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                height: 100vh;
+            }
+            h1 {
+                text-align: center;
+                margin: 2rem;
+            }
+            main {
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+                background-color: #eee;
+                width: 500px;
+                margin: 0 auto;
+                padding: 1rem;
+                border-radius: 5px;
+            }
+            main > h2 {
+                margin: 5px 0;
+                font-size: medium;
+            }
+            main > .date-wrap {
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+            main > .date-wrap > select {
+                padding: 10px;
+                flex: 1;
+            }
+            main > button, main>.today {
+                width: 100%;
+                text-align: center;
+                margin: 10px 0;
+                padding: 10px 0;
+            }
+            main > .result {
+                background-color: chocolate;
+                margin: 10px 0;
+                padding: 10px 0;
+                text-align: center;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>특정일까지 남은 시간 계산기</h1>
+        <main>
+            <h2>시작시간</h2>
+            <div class="date-wrap">
+                <label for="start-year">연도</label>
+                <select id="start-year">
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                </select>
+                <label for="start-month">월</label>
+                <select id="start-month">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+                <label for="start-day">일</label>
+                <select id="start-day">
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                </select>
+            </div>
+            <h2>목표시간</h2>
+            <div class="date-wrap">
+                <label for="target-year">연도</label>
+                <select id="target-year">
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                </select>
+                <label for="target-month">월</label>
+                <select id="target-month">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                </select>
+                <label for="target-day">일</label>
+                <select id="target-day">
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                </select>
+            </div>
+            <button>결과보기</button>
+            <div class="result dday">남은날짜 : 0일</div>
+            <div class="result dtime">남은시간 : 0일</div>
+            <div class="today">현재날짜 :</div>
+        </main>
+        <script src="./4-dday.js"></script>
+    </body>
+</html>

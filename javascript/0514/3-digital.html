@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>디지털 시계</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #222; /* 배경색 어둡게 */
+                min-height: 100vh; /* 화면 전체 높이 */
+                display: flex; /* 중앙 정렬을 위한 flex 사용 */
+                justify-content: center; /* 가로 중앙 정렬 */
+                align-items: center;     /* 세로 중앙 정렬 */
+            }
+            div {
+                background-color: #eee; /* 시계 배경색 */
+                color: #222;            /* 시계 글자색 */
+                padding: 1rem 3rem;     /* 시계 내부 여백 */
+                font-size: 11rem;       /* 시계 글자 크기 */
+                border-radius: 1rem;    /* 시계 테두리 둥글게 */
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.7); /* 그림자 효과 */
+            }
+        </style>
+    </head>
+    <body>
+        <div>00:00:00</div> <!-- 시계가 표시될 영역 -->
+        <script>
+            const $timediv = document.querySelector("div"); // div 요소 선택(시계 표시용)
+
+            // 시계를 갱신하는 함수 정의
+            const updateclock = () => {
+                // 현재 시각 정보를 담은 Date 객체 생성
+                const now = new Date();
+
+                // 시, 분, 초를 2자리 문자열로 변환 (padStart로 한 자리일 때 앞에 0 추가)
+                const hours = String(now.getHours()).padStart(2,"0");   // 시
+                const minutes = String(now.getMinutes()).padStart(2,"0"); // 분
+                const seconds = String(now.getSeconds()).padStart(2,"0"); // 초
+
+                // 시:분:초 형태의 문자열 생성
+                const timerstr = `${hours}:${minutes}:${seconds}`;
+
+                // div에 시계 문자열 표시
+                $timediv.textContent = timerstr;
+            }
+
+            setInterval(updateclock, 1000); // 1초마다 updateclock 함수 실행(시계 갱신)
+            updateclock(); // 페이지 로드 시 즉시 한 번 실행(바로 시계 표시)
+        </script>
+    </body>
+</html>
