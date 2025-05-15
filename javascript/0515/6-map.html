@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품목록</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        li{list-style: none;}
+        #product-list > li{
+            color :blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>오늘의 상품</h1>
+    <ul id="product-list"></ul>
+    <script>
+        const products=['에코백','텀블러','다이어리','시계'];
+        //list 
+        const lists = products.map((item)=>{
+            return `<li>${item}</li>`;
+        });
+        const itemStr = lists.join('');
+        const elem = document.querySelector("#product-list");
+        elem.innerHTML = itemStr;
+    </script>
+</body>
+</html>

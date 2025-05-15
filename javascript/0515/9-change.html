@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 변경</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        main{
+            width: 300px;
+            margin: 100px auto;
+        }
+        main>img{
+            width: 100%;
+        }
+        main>div{
+            display: flex;
+            gap: 10px;
+        }
+        main>div>button{
+            flex: 1;
+            padding: 20px 0;
+            font-size: 20px;
+        }
+</style>
+</head>
+<body>
+    <main>
+        <img src="./num_img/img-1.png" alt="1">
+        <div>
+            <button data-number="1">1</button>
+            <button data-number="2">2</button>
+            <button data-number="3">3</button>
+            
+        </div>
+    </main>
+<script>
+  const imgelem = document.querySelector("img");
+const btnelem = document.querySelectorAll("button");
+btnelem.forEach((elem) => {
+    elem.addEventListener("click", () => {
+        // console.log(elem.textContent);
+        // imgelem.src = `./images/img-${elem.textContent}.png`;
+        console.log(elem.dataset.number);
+        imgelem.src =`/num_img/img-${elem.dataset.number}.png`
+    });
+});
+</script>
+</body>
+</html>

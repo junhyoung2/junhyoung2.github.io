@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- HTML5 문서임을 선언 -->
+
+<html lang="ko">
+    <!-- 문서의 언어를 한국어로 설정 -->
+
+    <head>
+        <meta charset="UTF-8" />
+        <!-- 문자 인코딩을 UTF-8로 설정 (한글 등 다양한 문자를 제대로 표시) -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- 모바일 화면에서도 제대로 보이도록 뷰포트 설정 -->
+
+        <title>object 기본 문법</title>
+        <!-- 웹페이지의 제목 (브라우저 탭에 표시됨) -->
+    </head>
+
+    <body>
+        <p class="abc">p태그 컨텐츠</p>
+        <!-- class 이름이 'abc'인 <p> 태그. 초기 내용은 'p태그 컨텐츠' -->
+
+        <script src="./1-object.js"></script>
+        <!-- 외부 자바스크립트 파일 불러오기 (같은 폴더의 1-object.js) -->
+
+        <script>
+            // 문서에서 가장 처음 나오는 <p> 요소를 선택해서 elem 변수에 저장
+            const elem = document.querySelector("p");
+
+            // elem의 자료형을 콘솔에 출력 (예: object)
+            console.log(typeof elem);
+
+            // 선택된 <p> 태그의 텍스트를 '태그정보를 수정'으로 변경
+            elem.textContent = "태그정보를 수정";
+
+            // elem 객체의 속성과 구조를 콘솔에서 확인할 수 있게 출력
+            console.dir(elem);
+        </script>
+    </body>
+</html>

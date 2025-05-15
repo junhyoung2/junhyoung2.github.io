@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자주 묻는 질문</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        main{
+            margin: 20px;
+        }
+        #question{
+            background-color: #333;
+            color: #eee;
+            padding: 20px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+        #answer{
+            padding: 20px;
+            background-color: #999;
+            display: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>자주 묻는 질문</h1>
+    <main>
+        <p id="question">Q.멤버쉽을 해지하려면 어떻게 하나요?</p>
+        <div id="answer" style="display:none">A. 부담없이 간편하게 멤버십 해지를 하십시오.</div>
+    </main>
+    <script>
+             //요소 정보 가져오기
+            const questionelem = document.querySelector("#question");
+            const answernelem = document.querySelector("#answer");
+            console.log(questionelem);
+            //question 요소 클릭을 하면 이벤트 발생 및 함수 등록
+            questionelem.addEventListener("click", () => {
+            //a답변 보여주기
+                // answernelem.style.display = "block";
+                // answernelem.style.display = answernelem.style.display==='none' ? 'block' : 'none';
+              
+              
+                // if(answernelem.style.display ==="none"){
+                //     answernelem.style.display="block";
+                // }else{
+                //     answernelem.style.display="none";
+                // }
+
+                //switch 케이스
+                switch(answernelem.style.display){
+                    case "none":
+                    answernelem.style.display="block";
+                    break;
+                    case "block": 
+                    answernelem.style.display="none";
+                    break;
+
+                }
+            });
+
+
+
+    </script>
+</body>
+</html>

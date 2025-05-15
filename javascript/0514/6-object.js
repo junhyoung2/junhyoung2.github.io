@@ -7,26 +7,28 @@
 */
 const score = [86.7, 92.6, 73.2];
 
-score.forEach((s) => {
-    const rounded = Math.round(s); // 점수 반올림
-    let grade = "";
-    if (rounded >= 90) {
-        grade = "A";
-    } else if (rounded >= 80) {
-        grade = "B";
-    } else {
-        grade = "C";
+score.forEach((item)=>{
+    const result = Math.round(item);
+    if(result>=90){
+        console.log("A");
+    }else if(result >=80){
+        console.log("B")
+    }else if(result >=70){
+        console.log("C")
     }
-    console.log(`${rounded}점 : ${grade}등급`);
 });
+
+
+
 /* 2
 쿠폰 만료일 자동 계산
 오늘 날짜 이후로 30일 계산해서 출력
 출력 : 쿠폰 만료일 : 날짜 출력
 */
-const today = new Date();
-today.setDate(today.getDate() + 30);
-console.log("쿠폰 만료일 : ", today.toLocaleDateString());
+const today1 = new Date();
+today1.setDate(today1.getDate() + 30);
+console.log("쿠폰 만료일 : ", today1.toLocaleDateString());
+
 
 /* 3
 오늘의 date값을 입력받아서 주말인지 평일인지 판별하세요

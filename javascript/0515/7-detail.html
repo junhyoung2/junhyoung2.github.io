@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>상세설명보기</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            main {
+                margin: 0 auto;
+                width: 30%;
+            }
+            main > img {
+                width: 100%;
+            }
+            main > p {
+                position: relative;
+                top: -80px;
+                left: 10px;
+                background-color: #eee;
+                width: 100px;
+                text-align: center;
+                padding: 20px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            main > .detail {
+                display: none;
+            }
+            main > .detail > p {
+                padding: 5px 0;
+            }
+            main > .detail > #close {
+                padding: 20px;
+                color: #eee;
+                width: 100px;
+                border-radius: 10px;
+                background-color: #222;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <img src="./num_img/img-1.png" alt="상세설명이미지" />
+            <p id="open">상세설명보기</p>
+            <div class="detail">
+                <p>상세설명</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Temporibus dolor, iste nemo doloribus numquam eius
+                    reiciendis quaerat voluptate ut corrupti perspiciatis minus,
+                    sequi autem tempore architecto sit! Quasi, beatae est.
+                </p>
+                <p id="close">상세설명 닫기</p>
+            </div>
+        </main>
+        <script>
+            //#open 요소 정보 가져오기
+            const openelem = document.querySelector("#open");
+            console.log(openelem);
+
+            //open 요소 클릭을 하면 이벤트 발생 및 함수 등록
+            openelem.addEventListener("click", () => {
+                //.detail 요소 정보 가져오기
+                const detailelem = document.querySelector(".detail");
+                detailelem.style.display = "block";
+                //img가 투명 처리
+                const imgelem =document.querySelector("img");
+                imgelem.style.opacity = '0.5';
+
+                 
+            });
+
+            //#close 요소 정보 가져오기
+            const closeelem = document.querySelector("#close");
+            //open 요소 클릭을 하면 이벤트 발생 및 함수 등록
+            closeelem.addEventListener("click", () => {
+                //.detail 요소 정보 가져오기
+                const detailelem = document.querySelector(".detail");
+                detailelem.style.display = "none";
+                 //img가 불투명 처리
+                const imgelem =document.querySelector("img");
+                imgelem.style.opacity = '1';
+
+            });
+
+
+        </script>
+    </body>
+</html>

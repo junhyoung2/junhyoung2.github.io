@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>이미지선택</title>
+        <style>
+            main {
+                width: 300px;
+                margin: 100px auto;
+            }
+            main > img {
+                width: 100%;
+            }
+            main > div {
+                display: flex;
+            }
+            main > div > img {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <img src="./num_img/img-3.png" alt="3" />
+            <div>
+                <img src="./num_img/img-3.png" alt="3" />
+                <img src="./num_img/img-1.png" alt="1" />
+                <img src="./num_img/img-4.png" alt="4" />
+            </div>
+        </main>
+        <script>
+            const mimgelem = document.querySelector("main>img");
+            const simgelem = document.querySelectorAll("main > div > img");
+            simgelem.forEach((elem) => {
+                elem.addEventListener("click", () => {
+                    console.log(elem.src);
+
+                    // 썸네일의 alt 속성값을 이용해 경로를 새로 만들어 메인 이미지를 바꿈
+                    // mimgelem.src = `/num_img/img-${elem.alt}.png`;
+            
+                    // 썸네일과 메인 이미지가 항상 같은 파일을 보여줌
+                    mimgelem.src = elem.src;
+                });
+            });
+        </script>
+    </body>
+</html>
