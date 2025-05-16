@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>다음 이미지 변경</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            main {
+                width: 300px;
+                margin: 100px auto;
+                display: flex;
+                align-items: center;
+            }
+            main > img {
+                width: 90%;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <button>이전</button>
+            <img src="../num_img/img-1.png" alt="1" />
+            <button>다음</button>
+        </main>
+        <script>
+            //다음 버튼을  클릭 했을 때
+            const prevbtn = document.querySelector("main>button:nth-child(1)");
+            prevbtn.disabled=true;
+            const nextbtn = document.querySelector("main>button:nth-child(3)");
+            const mainimg = document.querySelector("img");
+            let count = 1;
+            console.log(typeof mainimg);
+            // console.log(nextbtn);
+            nextbtn.addEventListener("click", () => {
+                //이미지 변경되어야함
+                //1>2>3>4>5
+                if(count<5){
+                if (count < 5) {
+                    count++;
+                    if (count === 5) {
+                        nextbtn.disabled = true;
+                    }
+                }
+                }
+                console.log(count);
+                mainimg.src = `../num_img/img-${count}.png`;
+            });
+            prevbtn.addEventListener("click", () => {
+                // next btn이 다시 활성화
+                nextbtn.disabled = false;
+                //이미지 변경되어야함 1>2>3>4>5
+                if (count > 1) {
+                    count--;
+                }  else if(count ===1){
+                    prevbtn.disabled=true;
+                    }
+                console.log(count);
+                mainimg.src = `../num_img/img-${count}.png`;
+            });
+        </script>
+    </body>
+</html>
