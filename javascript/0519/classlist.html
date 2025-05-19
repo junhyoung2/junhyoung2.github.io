@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할 일 목록</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            font-size: 2rem;
+        }
+        ul>li{
+            padding: 1rem;
+        }
+        .completed{
+            text-decoration: line-through;
+            color: gray;
+        }
+        .bgblack{
+            background-color: black;
+            color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>할 일 목록</h1>
+    <ul>
+        <li>자바스크립트 연습</li>
+        <li>html 연습</li>
+        <li>css 연습</li>
+    </ul>
+    <script>
+        const ulelem = document.querySelector("ul");
+        // const elem = ulelem.querySelector("li:first-child");
+        // console.log(elem);
+        ulelem.addEventListener("click",(e)=>{
+           
+            // elem.className ="completed";
+            // console.log(elem.classList);
+            // elem.classList.remove(".bgblack");
+            // if (elem.className ==="completed"){
+            //     elem.className="completed bgblack";
+            // }else{
+            // elem.className = "comleted";
+            // }
+            
+            //contains
+            let elem= e.target;
+            elem.classList.toggle("completed");
+            console.log("click");
+            // console.log(elem);
+            const has = elem.classList.contains("completed");
+            if(has){
+                //true : 이미 추가가 되어있으니
+                elem.classList.add("bgblack");
+            }else{
+                elem.classList.add("completed");
+            }
+        
+        });
+    </script>
+</body>
+</html>

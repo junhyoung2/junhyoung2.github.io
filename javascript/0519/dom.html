@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            *{margin: 0;padding: 0;}
+            main{
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+            main > img{
+                width: 300px;
+            }
+            div.popup{
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.6);
+                display: none;
+
+            }
+            div.popup>img{
+                width: 600px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+            div.popup>button{
+                outline: none;
+                border: none;
+                padding: 1rem;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <button>클릭!</button> -->
+        <!-- <script>
+            const elem = document.querySelector("button");
+            // console.log(elem);
+            elem.addEventListener("click", (e) => {
+                alert("마우스 클릭");
+                console.log(e.target); //이벤트가 일어난 대상
+            });
+        </script> -->
+        <main>
+           <img src="./num_img/img-1.png" alt="1">
+           <img src="./num_img/img-2.png" alt="2">
+           <img src="./num_img/img-3.png" alt="3">
+        </main>
+        <div class="popup">
+            <img src="./num_img/img-1.png" alt="1">
+            <button>X</button>
+        </div>
+        <script>
+            // const imgelem = document.querySelectorAll('main > img');
+            // imgelem.forEach((item)=>{
+            //     item.addEventListener("click" , (e)=>{
+            //         console.log(item.src);
+            //         console.log(e.target);
+            //     });
+            // });
+            const mainelem = document.querySelector("main");
+            // const imgelem = mainelem.querySelectorAll("img");
+            // console.log(mainelem.children);
+            const popupelem = document.querySelector("div.popup");
+           const popupimg = document.querySelector("div.popup>img");
+            const closeelem = document.querySelector("div.popup>button");
+            mainelem.addEventListener("click",(e)=>{
+                // console.log("main click");
+                console.log(e.target.src);
+                popupimg.src = e.target.src;
+                popupelem.style.display = "block";
+            });
+            closeelem.addEventListener("click",()=>{
+                popupelem.style.display = "none";
+            });
+
+        </script>
+    </body>
+</html>

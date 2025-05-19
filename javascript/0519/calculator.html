@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>calculator</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            main {
+                width: 300px;
+                margin: 100px auto;
+            }
+            input{
+                text-align: right;
+            }
+            input,
+            button {
+                height: 70px;
+                width: 100%;
+                color: #eee;
+                font-size: 2rem;
+                background-color: #888;
+            }
+            .btn-wrap {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .ac {
+                grid-column: 1/4;
+            }
+            .zero {
+                grid-column: 1/3;
+            }
+            input,
+            .ac {
+                background-color: #444;
+                color: #eee;
+            }
+            .btn-wrap > button:nth-child(4n + 2),
+            .btn-wrap > button:last-child {
+                background-color: orange;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <input type="text" />
+            <div class="btn-wrap"></div>
+        </main>
+        <script src="./calculator.js"></script>
+    </body>
+</html>
