@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Fom & Javascript</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            form {
+                width: 500px;
+                margin: 100px auto;
+            }
+            fieldset {
+                padding: 20px 30px;
+                margin-bottom: 40px;
+            }
+            legend {
+                font-size: 1.5rem;
+                font-weight: bolder;
+            }
+            fieldset > div {
+                margin: 20px 0;
+                display: flex;
+            }
+            label {
+                width: 60px;
+            }
+            input {
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                padding: 5px;
+                box-sizing: border-box;
+                width: 100%; /* 모든 input을 동일하게 */
+            }
+            button {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="order">
+            <fieldset>
+                <legend>상품정보</legend>
+                <div>
+                    <label for="product">상품 :</label>
+                    <input type="text" id="product" autocomplete="off" />
+                </div>
+                <div>
+                    <label for="prod-num">갯수 : </label>
+                    <input
+                        type="number"
+                        id="prod-num"
+                        value="1"
+                        min="1"
+                        max="10"
+                    />
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>주문정보</legend>
+                <div>
+                    <label for="order-name">이름 : </label>
+                    <input type="text" id="order-name" />
+                </div>
+                <div>
+                    <label for="order-phone">연락처 : </label>
+                    <input type="number" id="order-phone" />
+                </div>
+                <div>
+                    <label for="order-addr">주소 : </label>
+                    <input type="text" id="order-addr" />
+                </div>
+            </fieldset>
+            <button type="submit">주문하기</button>
+        </form>
+        <script>
+            // const $product_name =document.querySelector("#product");
+            /*
+            submit : 버튼에서 일어나느 이벤트가 아님, form에서 일어나는 이벤트
+        
+            */
+            //form에서 객체를 가져오기
+            const $form = document.querySelector("form[name=order]");
+            $form.addEventListener("submit", (event) => {
+                event.preventDefault(); //이미 만들어진 기능을 초기화
+                console.log("submit 이벤트 발생");
+            });
+
+            //autocomplete 설정 off input 모두
+            const $inputAll = $form.querySelectorAll("input");
+            $inputAll.forEach((input) => {
+                // input.autocomplete ="off"; //아래와 동일 
+                input.setAttribute("autocomplete","off"); 
+                // input.getAttribute("autocomplete","off"); //가져올 때
+                console.log(input.getAttribute("autocomplete")); 
+            });
+        </script>
+    </body>
+</html>

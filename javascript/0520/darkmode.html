@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>다크모드 설정</title>
+        <style>
+            main {
+                width: 50%;
+                margin: 100px auto;
+                position: relative;
+            }
+            main > p {
+                border: 1px dotted #222;
+                border-radius: 10px;
+                padding: 2rem;
+                line-height: 2;
+            }
+            .dark {
+                background-color: #222;
+                color: #eee;
+            }
+            .dark-border {
+                border: 2px dotted #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <button style="position: absolute; right: 0; top: -100px">
+                다크모드로 바꾸기
+            </button>
+            <p>
+                classlist와 toggle 메소드를 사용하면 필요한 스타일 껐다 켰다 할
+                수 있습니다. 오른쪽 위에 있는 버튼을 클릭할 때 마다 다크모드,
+                또는 라이트모드로 바뀝니다.
+            </p>
+        </main>
+        <script>
+            const $btn = document.querySelector("button");
+            const btnclick = () => {
+                document.body.classList.toggle("dark");
+                document.querySelector("p").classList.toggle("dark-border");
+            };
+            $btn.addEventListener("click", btnclick);
+        </script>
+    </body>
+</html>

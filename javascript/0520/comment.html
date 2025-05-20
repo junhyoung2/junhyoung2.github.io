@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>댓글 작성</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                padding: 2rem;
+            }
+            #comment-form {
+                margin: 2rem 0;
+                display: flex;
+                gap: 1rem;
+            }
+            #comment-list > .comment {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border: 1px solid #ddd;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                gap: 1rem;
+            }
+            #comment-list > .comment > span {
+                flex: 1;
+            }
+            button {
+                padding: 5px;
+                border: none;
+                cursor: pointer;
+            }
+            .edit-btn {
+                background-color: orange;
+                color: #000;
+            }
+            .del-btn {
+                background-color: crimson;
+                color: #eee;
+            }
+            .save-btn{
+                background-color:yellowgreen;
+                color: #000;
+            }
+            .cancel-btn{
+                 background-color:#444;
+                color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>댓글 작성</h1>
+        <form id="comment-form">
+            <input type="text" id="comment-input" placeholder="댓글 입력" />
+            <button type="submit">등록</button>
+        </form>
+        <div id="comment-list">
+            <!-- <div class="comment">
+                <span>좋은아침입니다.</span>
+                <div class="btn-wrap">
+                    <button class="edit-btn">수정</button>
+                    <button class="del-btn">삭제</button>
+                </div>
+            </div> -->
+        </div>
+
+        <script src="./comment.js"></script>
+    </body>
+</html>

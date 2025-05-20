@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>createelem연습</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                text-align: center;
+                margin: 1rem;
+            }
+            form {
+                width: 500px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-around;
+            }
+            #userform,
+            .container > .item {
+                width: 500px;
+                margin: 2rem auto;
+                display: flex;
+                justify-content: space-between;
+                gap: 1rem;
+            }
+            #userform > input {
+                width: 100%;
+            }
+            #userform > button {
+                width: 100px;
+            }
+             .container>.item>button{
+                width: 100px;
+                background-color: tomato;
+                color: #eee;
+                border: none;
+             }
+            .container > .item > span {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>createelem연습</h1>
+        <form id="userform">
+            <input type="text" placeholder="이름입력" id="inputname" required />
+            <input type="number" placeholder="나이입력" id="inputage" required />
+            <!-- <input type="submit"> -->
+            <button type="submit">추가</button>
+        </form>
+        <div class="container">
+            <!-- <div class="item">
+                <span>김삼순(40세)</span>
+                <button>삭제</button>
+            </div> -->
+        </div>
+        <script src="./inputcard.js"></script>
+    </body>
+</html>
