@@ -41,6 +41,46 @@
                 padding: 10px 0;
                 font-weight: bolder;
             }
+            #popup {
+                background-color: rgba(0, 0, 0, 0.6);
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: none;
+            }
+            #popup.open {
+                display: block;
+            }
+
+            #popup > ul.viewlist {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: #eee;
+                width: 500px;
+                height: 500px;
+                border-radius: 10px;
+                list-style: none;
+                padding: 2rem;
+                box-sizing: border-box;
+            }
+            #popup > ul > li {
+                margin-bottom: 1rem;
+            }
+            #popup > .close {
+                width: 500px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, 0) translateY(-300px);
+                z-index: 10;
+                background-color: #222;
+                color: #eee;
+                border-radius: 10px;
+            }
         </style>
     </head>
     <body>
@@ -79,27 +119,59 @@
             </fieldset>
             <button type="submit">주문하기</button>
         </form>
+        <div id="popup">
+            <button class="close">닫기</button>
+            <ul class="viewlist">
+                <!-- <li>상품 :</li>
+                <li>갯수 :</li> -->
+            </ul>
+        </div>
         <script>
             // const $product_name =document.querySelector("#product");
             /*
             submit : 버튼에서 일어나느 이벤트가 아님, form에서 일어나는 이벤트
-        
             */
+
+            //변수 선언
             //form에서 객체를 가져오기
             const $form = document.querySelector("form[name=order]");
-            $form.addEventListener("submit", (event) => {
-                event.preventDefault(); //이미 만들어진 기능을 초기화
-                console.log("submit 이벤트 발생");
+            const $inputAll = $form.querySelectorAll("input");
+            const $popup = document.querySelector("#popup");
+            const $ul = $popup.querySelector("ul");
+            const $closebtn = $popup.querySelector(".close");
+
+            $inputAll.forEach((input) => {
+                // input.autocomplete ="off"; //아래와 동일
+                input.setAttribute("autocomplete", "off");
+                // input.getAttribute("autocomplete","off"); //가져올 때
+                console.log(input.getAttribute("autocomplete"));
             });
 
-            //autocomplete 설정 off input 모두
-            const $inputAll = $form.querySelectorAll("input");
-            $inputAll.forEach((input) => {
-                // input.autocomplete ="off"; //아래와 동일 
-                input.setAttribute("autocomplete","off"); 
-                // input.getAttribute("autocomplete","off"); //가져올 때
-                console.log(input.getAttribute("autocomplete")); 
+            const createitem = () => {
+                $ul.innerHTML = ""; // ul을 먼저 비우고
+                $inputAll.forEach((elem) => {
+                    const $li = document.createElement("li");
+                    const $prev = elem.previousElementSibling;
+                    $li.textContent = `${$prev.textContent} ${elem.value}`;
+                    $ul.appendChild($li);
+                });
+            };
+
+            $closebtn.addEventListener("click", () => {
+                // open이라는 클래스가 삭제가 되어야함
+                $popup.classList.remove("open");
             });
+
+            $form.addEventListener("submit", (event) => {
+                event.preventDefault(); //이미 만들어진 기능을 초기화
+                // console.log("submit 이벤트 발생");
+                $popup.classList.add("open");
+                createitem();
+            });
+
+            //주문하기 버튼을 클릭했을 때
+            //1. 객체를 가져온다.
+            const $orderbtn = document.querySelector("button");
         </script>
     </body>
 </html>

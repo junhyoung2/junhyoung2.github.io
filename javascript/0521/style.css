@@ -1,0 +1,175 @@
+@charset "utf-8";
+
+html{
+    scroll-behavior: smooth;
+}
+/* header 영역 */
+header {
+    margin: 1rem 0;
+    color: #fff;
+    background-image: linear-gradient(
+        90deg,
+        #444 0%,
+        #666 25%,
+        #888 50%,
+        #aaa 75%,
+        #ccc 100%
+    );
+}
+header > h1 {
+    padding: 2rem;
+    color: #eee;
+}
+header>.title{
+    display: none;
+}
+header>.title>hr{
+    margin-left: 2rem;
+    width: 30%;
+    outline: none;
+    border: 2px solid #fff;
+    border-width: 2px;
+}
+header>.title>p{
+    padding: 0.5rem 2rem;
+}
+/* main 영역 */
+main {
+    width: 80%;
+    margin: 2rem auto;
+    padding-bottom: 3rem;
+    /* position: relative; */
+}
+main > ul {
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    gap: 1rem;
+    /* position: absolute;
+    right: 0;
+    top: -4rem; */
+    float: right;
+}
+main > ul > li {
+    flex: 1;
+     border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+main > ul > li.on > a {
+    background-image: linear-gradient(
+        90deg,
+        #444 0%,
+        #666 25%,
+        #888 50%,
+        #aaa 75%,
+        #ccc 100%
+    );
+     
+    box-shadow: 0 0 16px 0 rgba(100, 100, 100, 0.25);
+    color: #fff;
+    font-weight: bolder;
+    
+}
+main > ul > li > a {
+    display: block;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+main>section{
+    clear: both;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin: 4rem 0;
+}
+
+article {
+    /* width: 100%; */
+    flex: 1;
+    background-color: #eee;
+    padding: 0.8rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    color: #555;
+}
+article:nth-child(2) img{
+    aspect-ratio: 1/1.5;
+    object-fit: cover;
+}
+article img {
+    width: 100%;
+}
+article h2 {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+}
+article p {
+    font-size: 0.7rem;
+    text-align: justify;
+    word-break: keep-all;
+}
+
+@media screen and (min-width:768px) {
+    main> section{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    }
+    article{
+    /* width: 40%; */
+    /*
+        1. 남은 공간이 있으면 얼마나 늘릴지
+        2. 공간이 부족하면 얼만큼 줄일지
+        250px 기본 크기
+    */
+
+    flex: 1 1 250px;
+    }
+}
+@media screen and (min-width:1024px){
+    body{
+        display: flex;
+        align-items: stretch;
+    }
+    header{
+        margin: 0;
+        width: 350px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    header>h1{
+        font-size: 3rem;
+        padding-top: 10rem;
+    }
+    header>.title{
+    display: block;
+}
+    main{
+        padding:3rem;
+        margin: 0;
+        margin-left: 350px;
+        padding-bottom: 5rem;
+    }
+    section{
+        padding-bottom: 5rem;
+    }
+    /* article{
+        flex: 1 1 200px;
+    } */
+}
+
+
+
+
+
+
+
