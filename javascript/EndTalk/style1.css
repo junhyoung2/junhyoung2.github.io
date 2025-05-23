@@ -1,0 +1,264 @@
+/* 메인 */
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #fdf3dc;
+}
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: flex-start;
+}
+h1 {
+    background-color: #add8ff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 232px;
+    height: 84px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: keep-all;
+    line-height: 1.2;
+    margin: 40px auto 32px auto;
+}
+
+/* 메인 화면 말풍선  */
+.chat-container {
+    width: 100%;
+    max-width: 480px;
+    height: 400px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    background: transparent;
+}
+
+.chat-message {
+      max-width: 70%;
+    padding: 10px;
+    border-radius: 12px;
+    margin: 8px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    width: 110px;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* 중앙정렬 */
+    justify-content: center;
+    text-align: center;       /* 텍스트 중앙정렬 */
+    word-break: keep-all;
+    line-height: 1.2;
+    background-color: #fff;
+    position: static;
+}
+/* .chat-message.left:nth-child(2) {
+    top: 300px;
+    left: 20px;
+}
+
+.chat-message.right:nth-child(3) {
+    top: 400px;
+    right: 20px;
+}
+.chat-message.left:nth-child(4) {
+    top: 500px;
+    left: 20px;
+}
+
+.chat-message.right:nth-child(5) {
+    top: 600px;
+    right: 20px;
+} */
+
+.chat-message:nth-child(odd) {
+    align-self: flex-start;
+    background-color: #add8ff;
+}
+
+.chat-message:nth-child(even) {
+    align-self: flex-end;
+    background-color: #ffeb3b;
+}
+
+.timestamp {
+    font-size: 13px;
+    color: #888;
+    /* margin-top: 10px; */
+    margin-bottom: -30px;
+    margin-right: -40px;
+    align-self: flex-end;
+}
+
+/* 메인화면 버튼 요소들 */
+.input-area {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px 30px 20px;
+    margin: 0 auto;
+    background: transparent;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    outline: none;
+}
+
+/* 제시어 입력 버튼 */
+.input-area input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 217px;
+    height: 36px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    background: #fff;
+    word-break: keep-all;
+    line-height: 1.2;
+}
+
+/* 시작버튼 */
+.input-area button {
+    padding: 10px 15px;
+    background-color: #ffe600;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    width: 217px;
+    height: 36px;
+    outline: none;
+    font-weight: bold;
+    word-break: keep-all;
+    line-height: 1.2;
+}
+
+/* 인게임 */
+.hidden {
+    display: none;
+}
+#game-screen > .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    box-sizing: border-box;
+}
+#game-screen > .header .leftbtn {
+    margin-right: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #444;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#game-screen > .header > h2 {
+    margin: 0;
+    font-size: 24px;
+    flex: 1 1 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+/* 인게임 입력창 */
+#game-screen > .input-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 383px;
+    padding: 0;
+    margin: 0 auto 24px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#game-screen > .input-area > #word-input {
+    width: 100%;
+    height: 43px;
+    text-align: left;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 12px 10px;
+    font-size: 16px;
+    border-radius: 12px 0 0 12px;
+    flex: 1;
+    box-shadow: none;
+}
+
+#game-screen > .input-area > #send {
+    width: 44px;
+    height: 43px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 12px 12px 0;
+    margin-left: 0;
+    box-shadow: none;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+    .chat-container,
+    .input-area {
+        max-width: 98vw;
+        width: 98vw;
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+    h1 {
+        width: 232px;
+        height: 84px;
+        font-size: 36px;
+    }
+    .input-area input,
+    .input-area button {
+        width: 215px;
+        height: 36px;
+        max-width: 100%;
+        font-size: 1rem;
+    }
+}

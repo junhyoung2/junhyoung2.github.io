@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>선택자</title>
+    </head>
+    <body>
+        <div id="wrap">
+            <h1>인접선택자</h1>
+            <p class="text">내용1</p>
+            <ul>
+                <li>자식 요소 선택자</li>
+                <li class="text">하나 더</li>
+            </ul>
+        </div>
+        <script>
+            /*
+        queryselector, queryselectorall
+        getelmet~~ 
+        */
+            //    const elem =document.getElementById("wrap")
+            let elem = document.getElementById("wrap");
+            //    elem=document.getElementsByClassName("text");
+            //    elem=document.getElementsByTagName("p");
+
+            // 자식 요소 접근
+            const children = elem.children;
+            // console.log(children);
+
+            //첫번째 자식 요소
+            const firstchild = elem.firstElementChild; //idx : 0
+            // console.log(firstchild[1]);
+
+            //마지막 자식 요소
+            const lastchild = elem.lastElementChild; // idx : lenght -1
+            // console.log(lastchild);
+            //h1 요소 정보 가져오기
+            const $h1 = document.querySelector("h1");
+            // console.log($h1);
+
+            //부모 요소 접근
+            const parent = $h1.parentElement; //wrap
+            // console.log(parent);
+
+            const $li = parent.querySelectorAll("ul>li");
+            console.log($li);
+            $li.forEach((li, idx) => {
+                console.log(`li[${idx}] = ${li.textContent}`);
+            });
+
+            //특정 요소의 이전, 다음 형제의 요소에 접근 
+            const $p =document.querySelector("p");
+            const prevSlibling =$p.previousElementSibling;
+            console.log(prevSlibling); //h1
+            const nextSlibling = $p.nextElementSibling;
+            console.log(nextSlibling); //ul
+        </script>
+    </body>
+</html>

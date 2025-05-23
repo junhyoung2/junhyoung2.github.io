@@ -99,10 +99,10 @@ article {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     color: #555;
 }
-article:nth-child(2) img{
+/* article:nth-child(2) img{
     aspect-ratio: 1/1.5;
     object-fit: cover;
-}
+} */
 article img {
     width: 100%;
 }

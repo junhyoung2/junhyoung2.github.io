@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>enter 입력하여 검색</title>
+    </head>
+    <body>
+        <input type="text" id="search" placeholder="검색어를 입력하세요" />
+        <button id="go">검색</button>
+        <script>
+            /*
+        버튼을 클릭하면 alert창으로 {input에 입력된 검색어}로 검색합니다.라고 출력
+        */
+            const $input = document.querySelector("#search");
+            const $btn = document.querySelector("#go");
+            $btn.addEventListener("click",()=>{
+                //버튼을 클리갛며 제일 먼저 input에 입력된 값을 읽어오기
+                alert(`${$input.value}로 검색합니다.`);
+                $input.value="";
+            });
+          //input에서 enter키가 눌려지면
+          $input.addEventListener("keydown",(event)=>{
+            if(event.key ==='Enter'){
+                $btn.click();
+            }
+          });
+           
+    
+        </script>
+    </body>
+</html>
