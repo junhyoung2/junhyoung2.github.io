@@ -4,8 +4,7 @@ const chatContainer = document.getElementById("chat-container");
 const startInput = document.getElementById("start-word");
 const wordInput = document.getElementById("word-input");
 
-const chatLog = [];
-
+const wordLog = [];
 
 startInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -14,18 +13,20 @@ startInput.addEventListener("keydown", (e) => {
 });
 
 wordInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    submitWord();
-  }
+    if (e.key === "Enter") {
+        submitWord();
+    }
 });
 
-
-
-let isLeftTurn = false; // 사용자 입력 시 좌우 교차 표시
+let isLeftTurn = false; // 턴에 따라 왼쪽, 오른쪽 메시지 표시
 
 function formatTime() {
     const now = new Date();
-    return `${now.getHours()}:${now.getMinutes().toString().padStart(2, "0")}`;
+    // 시, 분 모두 두 자리 숫자로 포맷
+    return `${now.getHours().toString().padStart(2, "0")}:${now
+        .getMinutes()
+        .toString()
+        .padStart(2, "0")}`;
 }
 
 function startGame() {
@@ -34,9 +35,10 @@ function startGame() {
         alert("시작 단어를 입력해주세요!");
         return;
     }
+    resetChat(); // 초기화
     startScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
-    addMessage(word, "left"); // 제시어는 항상 왼쪽
+    addMessage(word, "left"); // 시작 단어는 항상 왼쪽
 }
 
 function submitWord() {
@@ -47,16 +49,16 @@ function submitWord() {
     }
 
     const lastWord =
-        chatLog.length > 0 ? chatLog[chatLog.length - 1].word : null;
+        wordLog.length > 0 ? wordLog[wordLog.length - 1].word : null;
     if (lastWord && lastWord.charAt(lastWord.length - 1) !== word.charAt(0)) {
         alert("끝말이 맞지 않아요!");
         return;
     }
 
-    const side = isLeftTurn ? "left" : "right"; // 사용자 입력은 좌우 번갈아가며
+    const side = isLeftTurn ? "left" : "right";
     addMessage(word, side);
     wordInput.value = "";
-    isLeftTurn = !isLeftTurn; // 턴 전환
+    isLeftTurn = !isLeftTurn;
 }
 
 function addMessage(word, side) {
@@ -68,33 +70,39 @@ function addMessage(word, side) {
     `;
     chatContainer.appendChild(messageDiv);
 
-    chatLog.push({ word, side });
+    wordLog.push({ word, side });
 
-    // 최대 메세지 제한한
-    // if (chatLog.length > 4) {
-    //     chatLog.shift();
-    //     chatContainer.removeChild(chatContainer.firstChild);
-    // }
+    // 최대 메시지 제한 (5개 유지)
+    if (wordLog.length > 4) {
+        wordLog.shift();
+        chatContainer.removeChild(chatContainer.firstChild);
+    }
+
+    // 스크롤 아래로 자동 이동
+    // chatContainer.scrollTop = chatContainer.scrollHeight;
 }
 
+function resetChat() {
+    chatContainer.innerHTML = "";
+    wordLog.length = 0;
+    isLeftTurn = false;
+}
+
+// 뒤로가기 버튼 동작
 document.querySelector(".leftbtn").addEventListener("click", () => {
     console.log("뒤로가기 클릭됨");
+    resetChat();
     startScreen.classList.remove("hidden");
     gameScreen.classList.add("hidden");
-    chatContainer.innerHTML = "";
-    chatLog.length = 0;
-    isLeftTurn = false;
     startInput.value = "";
-    console.log("startInput.value 초기화:", startInput.value);
 });
 
-function showStartScreen() {
-    startScreen.classList.remove("hidden");
-    gameScreen.classList.add("hidden");
-    chatContainer.innerHTML = "";
-    chatLog.length = 0;
-    isLeftTurn = false;
-    startInput.value = "";
+
+//모바일 키보드 대응
+function setVh() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 
-document.querySelector(".leftbtn").addEventListener("click", showStartScreen);
+window.addEventListener('resize', setVh);
+window.addEventListener('load', setVh);

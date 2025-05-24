@@ -1,63 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>끝말이🎮</title>
-        <link rel="stylesheet" href="./rest.css" />
-        <link rel="stylesheet" href="./style1.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        />
-    </head>
-    <!-- <header>
-        <div class="leftbtn">
-            <i class="fa-solid fa-arrow-left"></i>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>끝말이🎮</title>
+    <link rel="stylesheet" href="./rest.css" />
+    <link rel="stylesheet" href="./style1.css" />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+    <section id="start-screen">
+        <h1>끝말이🎮</h1>
+        <div class="chat-message left">사과</div>
+        <div class="chat-message right">과자</div>
+        <div class="chat-message left">자동</div>
+        <div class="chat-message right">동작</div>
+        <div class="input-area">
+            <input
+                id="start-word"
+                type="text"
+                placeholder="시작 단어를 입력해주세요."
+            />
+            <button onclick="startGame()">끝말이와 끝말 잇기</button>
         </div>
-        <h2 class="title">
-            끝말이🎮
-        </h2>
-    </header> -->
-    <body>
-        <main id="start-screen">
-            <h1>끝말이🎮</h1>
-            <div class="chat-message left">사과</div>
-            <div class="chat-message right">과자</div>
-            <div class="chat-message left">자동</div>
-            <div class="chat-message right">동작</div>
-            <div class="input-area">
-                <input
-                    id="start-word"
-                    type="text"
-                    placeholder="시작 단어를 입력해주세요."
-                />
-                <button onclick="startGame()">끝말이와 끝말 잇기</button>
+    </section>
+    <section id="game-screen" class="hidden">
+        <div class="header">
+            <div class="leftbtn">
+                <i class="fa-solid fa-arrow-left"></i>
             </div>
-        </main>
+            <h2>끝말이🎮</h2>
+        </div>
+        <div class="chat-container" id="chat-container"></div>
+        <div class="input-area">
+            <input
+                id="word-input"
+                type="text"
+                placeholder="단어를 입력해주세요."
+            />
+            <button id="send" type="button" onclick="submitWord()">
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+    </section>
 
-        <main id="game-screen" class="hidden">
-            <div class="header">
-                <div class="leftbtn">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </div>
-                <h2>끝말이🎮</h2>
-            </div>
-            <div class="chat-container" id="chat-container"></div>
-            <div class="input-area">
-                <input
-                    id="word-input"
-                    type="text"
-                    placeholder="단어를 입력해주세요."
-                />
-                <button id="send" type="button" onclick="submitWord()">
-                    <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
-        </main>
-        <script src="./script.js"></script>
-    </body>
+    <script src="./script.js"></script>
+</body>
 </html>
