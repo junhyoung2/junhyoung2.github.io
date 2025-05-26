@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse-move</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 커서 역할을 할 요소 스타일 */
+        .cursor {
+            width: 10px;
+            height: 10px;
+            background-color: tomato; /* 빨간색 점 */
+            position: fixed; /* 브라우저 기준 위치 고정 */
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%); /* 중심 기준 위치 정렬 */
+            pointer-events: none; /* 마우스 이벤트 방해하지 않도록 설정 */
+            border-radius: 50%; /* 원형으로 만듦 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 화면을 따라다닐 가상 커서 요소 -->
+    <div class="cursor"></div>
+
+    <script>
+        const $cursor = document.querySelector(".cursor");
+
+        // 마우스 움직일 때마다 실행
+        document.addEventListener("mousemove", (e) => {
+            // 마우스 좌표를 기준으로 커서 요소의 위치를 이동
+            $cursor.style.top = `${e.clientY}px`;   // 수직 위치
+            $cursor.style.left = `${e.clientX}px`;  // 수평 위치
+        });
+    </script>
+</body>
+</html>

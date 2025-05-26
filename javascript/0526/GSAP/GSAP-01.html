@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- GSAP 라이브러리 로드 -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <title>GSAP 사용</title>
+        <style>
+            .box {
+                width: 100px;
+                height: 100px;
+                background-color: red; /* 초기 배경색 빨강 */
+            }
+        </style>
+    </head>
+    <body>
+        <!--
+            gsap.to: 현재 상태에서 원하는 상태로 애니메이션을 이동
+            gsap.from: 특정 상태에서 시작해서 원래 상태로 돌아오는 애니메이션
+            gsap.fromTo: 시작 상태와 끝 상태를 모두 지정해서 애니메이션 진행
+        -->
+        <div class="box"></div>
+
+        <script>
+            // 단위는 px(위치), s(초, duration)이 기본
+            // 첫번째 인자 : 선택자(selector) - 애니메이션을 적용할 대상
+            // 두번째 인자 : 애니메이션 옵션 객체 or 배열
+
+            /*
+            // gsap.to 사용 예시 (무한 반복, 왕복)
+            gsap.to(".box", {
+                repeat: -1,       // -1이면 무한 반복
+                yoyo: true,       // true면 애니메이션이 끝나면 다시 역방향으로 재생 (왕복)
+                x: 600,           // x축 600px 이동
+                y: 400,           // y축 400px 이동
+                rotation: 45,     // 45도 회전
+                scale: 1.5,       // 크기 1.5배 확대
+                duration: 2,      // 2초 동안 애니메이션 진행
+            });
+            */
+
+            /*
+            // 1초 뒤에 투명도를 0.5로 줄이는 애니메이션
+            gsap.to(".box", {
+                opacity: 0.5,
+                delay: 1,        // 1초 지연 후 시작
+                duration: 1      // 1초 동안 애니메이션 진행
+            });
+            */
+
+            /*
+            // gsap.from 예시 (처음 위치와 투명도에서 시작해 원래 상태로 돌아옴)
+            gsap.from(".box", {
+                x: 500,          // 시작 x 위치 500px
+                opacity: 0.3,    // 시작 투명도 0.3
+                duration: 2,
+                delay: 1,
+                repeat: -1,      // 무한 반복
+                yoyo: true       // 왕복 애니메이션
+            });
+            */
+
+            /*
+            // gsap.fromTo 예시 (명확한 시작과 끝 상태 지정)
+            gsap.fromTo(".box",
+                { x: 100, opacity: 0.3 },  // 시작 상태
+                { x: 500, opacity: 1, duration: 2 }  // 끝 상태
+            );
+            */
+
+            /*
+            // repeat 숫자 지정 예시 (3번 반복 후 멈춤, onComplete 콜백)
+            gsap.to(".box", {
+                x: 500,
+                repeat: 3,       // 3번 반복
+                yoyo: true,      // 왕복
+                delay: 1,        // 1초 지연
+                duration: 2,
+                onComplete: () => {
+                    alert("애니메이션 종료");  // 애니메이션 완료 시 경고창 띄움
+                }
+            });
+            */
+
+            // 실제 실행할 애니메이션: 배경색을 빨강 → 파랑으로 변경, 1초 동안
+            gsap.to(".box", {
+                backgroundColor: "blue",
+                duration: 1
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 시 상단 네비게이션 고정/숨김</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style: none;}
+
+        /* 스크롤 테스트를 위해 본문 길이를 매우 길게 설정 */
+        body{
+            height: 400vh;
+        }
+
+        a{
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            padding: 1rem 0; /* 링크 클릭 영역 확장 */
+        }
+
+        ul{
+            background-color: #222; /* 어두운 배경 */
+            color: #eee;            /* 밝은 텍스트 */
+            list-style: none;
+            display: flex;
+            justify-content: space-around; /* 메뉴 항목을 가로로 배치 */
+        }
+
+        header{
+            position: fixed; /* 상단 고정 */
+            top: 0;           /* 초기 위치는 화면 상단 */
+            left: 0;
+            width: 100%;
+            transition: top 0.5s; /* top값이 바뀔 때 부드럽게 전환 */
+        }
+
+        .top{
+            width: 50px;
+            height: 50px;
+            background-color: tomato;
+            color: #eee;
+            text-align: center;
+            line-height: 50px;
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- 고정 헤더: 네비게이션 메뉴 -->
+    <header>
+        <ul>
+            <li><a href="#">메뉴 1</a></li>
+            <li><a href="#">메뉴 2</a></li>
+            <li><a href="#">메뉴 3</a></li>
+            <li><a href="#">메뉴 4</a></li>
+        </ul>
+    </header>
+
+    <!-- 스크롤 최상단 이동 버튼 -->
+    <div class="top">TOP</div>
+
+    <script>
+        const $header = document.querySelector("header");
+
+        // 스크롤 이벤트 발생 시
+        window.addEventListener("scroll", () => {
+            // 제일 상단 위에 있을 경우 (scrollY: 0)
+            // → 헤더를 위로 숨김
+            if (window.scrollY <= 0) {
+                $header.style.top = "-100px"; // 숨기기 (헤더 높이보다 더 위로 밀어냄)
+            } else {
+                $header.style.top = "0"; // 다시 화면에 보이게 함
+            }
+        });
+
+        // TOP 버튼 클릭 시
+        document.querySelector(".top").addEventListener("click", () => {
+            // 페이지 최상단으로 부드럽게 스크롤 이동
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+</body>
+</html>

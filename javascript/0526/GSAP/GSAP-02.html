@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배너 슬라이드</title>
+    <!-- GSAP 애니메이션 라이브러리 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0;}
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slider{
+            width: 500px;
+            border: 2px solid #eee;
+            overflow: hidden; /* 슬라이드 영역을 벗어나는 이미지 숨김 처리 */
+        }
+        .slider>.img-list{
+            width: 2000px; /* 500px * 4장 */
+            display: flex; /* 이미지들을 가로로 나열 */
+        }
+        .slider>.img-list>img{
+            width: 500px; /* 각 이미지의 너비 */
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <div class="img-list">
+            <!-- 이미지 3장 + 마지막에 첫 번째 이미지 복제 (무한 루프용) -->
+            <img src="../num/1.png" alt="1">
+            <img src="../num/2.png" alt="2">
+            <img src="../num/3.png" alt="3">
+            <img src="../num/1.png" alt="1">
+        </div>
+    </div>
+    <script>
+        // 0,1,2 : 3으로 나눴을 때 나머지
+        // -> current는 현재 보여줄 이미지 인덱스를 나타냄
+        let current = 0;
+
+        // 다음 슬라이드로 이동하는 함수 정의
+        const slideNext = () => {
+            // 0,1,2,3 반복되도록 current 값 설정
+            // 3일 때는 복제된 첫 번째 이미지가 화면에 보이게 된다
+            current = (current + 1) % 4;
+
+            // gsap 애니메이션을 사용해 x축으로 슬라이드 이동
+            gsap.to(".img-list", {
+                x: -500 * current, // 왼쪽으로 current * 500px 이동
+                duration: 1, // 애니메이션 시간 1초
+                onComplete: () => {
+                    // 이미지의 마지막(복제된 첫 번째 이미지)까지 도달했을 때 실행됨
+                    if (current === 3) {
+                        // 시각적으로는 1번 이미지지만, 내부적으로는 복제된 4번째 이미지임
+                        // 원래 1번 이미지 위치(0px)로 점프하여 루프 효과
+                        current = 0;
+                        gsap.set(".img-list", { x: 0 }); // 위치를 순간이동으로 초기화
+                    }
+                }
+            });
+        };
+
+        // 일정 간격(3초)마다 slideNext 실행 -> 자동 슬라이드
+        setInterval(slideNext, 3000);
+
+        // 아래는 테스트용 수동 호출 예시로, 현재는 주석 처리됨
+        // slideNext();
+        // slideNext();
+        // slideNext();
+    </script>
+</body>
+</html>

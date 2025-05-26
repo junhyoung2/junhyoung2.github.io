@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애니메이션</title>
+    <style>
+        /* 박스의 기본 스타일 */
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+
+            /* 모든 속성 변경 시 0.1초 동안 부드럽게 transition 적용 */
+            transition: all 0.1s;
+        }
+
+        /* 클래스를 이용한 이동 방법 - 현재는 사용되지 않음 */
+        .move {
+            transform: translateX(200px);
+        }
+    </style>
+</head>
+<body>
+    <!-- 이동 대상 박스 -->
+    <div class="box"></div>
+
+    <!-- 버튼 클릭 시 박스 이동 -->
+    <button>이동</button>
+
+    <script>
+        // 버튼 요소 가져오기
+        const $btn = document.querySelector("button");
+
+        // 박스 요소 가져오기
+        const $box = document.querySelector(".box");
+
+        // 현재 x축 위치값 (기본 0)
+        let posX = 0;
+
+        // 버튼 클릭 이벤트 리스너 등록
+        $btn.addEventListener("click", () => {
+
+            /*
+             transform과 transition 적용하는 방법은 여러 가지가 있다:
+
+             1. 직접 스타일 조작 (현재 사용 중)
+             $box.style.transform = "translateX(200px)";
+             $box.style.transition = "all 0.5s";
+
+             2. 클래스를 토글하여 스타일 제어 (아래 주석 참조)
+             $box.classList.toggle("move"); // add/remove 반복됨
+            */
+
+            // posX가 800 이하일 때만 이동 → 최대 1000px까지만 움직임
+            if (posX <= 800) {
+                posX += 200; // 200px씩 이동
+                $box.style.transform = `translateX(${posX}px)`; // translateX에 적용
+            }
+
+        });
+    </script>
+</body>
+</html>

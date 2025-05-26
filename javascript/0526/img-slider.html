@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>img-slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .slider {
+            width: 300px;
+            overflow: hidden; /* 슬라이더 영역을 넘어간 이미지는 숨김 처리 */
+        }
+        .track {
+            width: 900px; /* 이미지 3개 가로 총합 */
+            display: flex; /* 가로로 이미지 배치 */
+        }
+        .track > img {
+            width: 300px; /* 이미지 1개 너비 */
+            opacity: 0.3; /* 비활성 이미지 투명도 */
+            transition: opacity 1s; /* 부드러운 투명도 변화 */
+        }
+        .track > img.active {
+            opacity: 1; /* 활성 이미지 투명도 */
+        }
+        button {
+            position: relative;
+            z-index: 10; /* 버튼을 이미지 위로 노출 */
+        }
+    </style>
+</head>
+<body>
+    <button class="prev">이전</button>
+    <div class="slider">
+        <div class="track">
+            <img src="./num/1.png" alt="1" class="active" />
+            <img src="./num/2.png" alt="2" />
+            <img src="./num/3.png" alt="3" />
+        </div>
+    </div>
+    <button class="next">다음</button>
+    <script>
+        // 슬라이드 트랙과 이미지들을 변수에 할당
+        const $track = document.querySelector(".track");
+        const $imgs = document.querySelectorAll(".track>img");
+
+        // 이미지 개수 및 한 이미지 너비 변수
+        const slidercount = $imgs.length;
+        const sliderwidth = 300;
+        let index = 0; // 현재 보여지는 이미지 인덱스
+
+        // 이미지 업데이트 함수
+        // 모든 이미지에서 active 클래스 제거 후 현재 index 이미지에만 추가
+        // 그리고 트랙을 translateX로 이동시켜 슬라이드 구현
+        const updateimg = () => {
+            $imgs.forEach((elem) => {
+                elem.classList.remove("active");
+            });
+            $imgs[index].classList.add("active");
+            $track.style.transform = `translateX(-${index * sliderwidth}px)`;
+        };
+
+        // 다음 버튼 클릭 이벤트
+        document.querySelector(".next").addEventListener("click", () => {
+            $imgs[index].classList.remove("active"); // 기존 active 제거
+            index++;
+            if (index >= slidercount) {
+                index = 0; // 마지막 이미지 넘어가면 처음으로
+            }
+            updateimg(); // 상태 업데이트
+        });
+
+        // 이전 버튼 클릭 이벤트
+        document.querySelector(".prev").addEventListener("click", () => {
+            $imgs[index].classList.remove("active"); // 기존 active 제거
+            index--;
+            if (index < 0) {
+                index = slidercount - 1; // 처음 이미지 넘어가면 마지막으로
+            }
+            updateimg(); // 상태 업데이트
+        });
+    </script>
+</body>
+</html>
