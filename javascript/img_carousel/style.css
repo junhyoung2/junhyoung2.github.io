@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 html,
 body {
     width: 100%;
@@ -12,23 +11,12 @@ body {
     font-family: "Noto Sans KR", sans-serif;
     background: #fafafa;
     opacity: 0.9;
-=======
-/* Reset, 폰트, 배경 등 공통 */
-body {
-    font-family: "Noto Sans KR", sans-serif;
-    background: #fafafa;
-    margin: 0;
-    padding: 0;
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
 }
 header {
     text-align: left;
     margin-top: 30px;
     padding: 0 40px;
-<<<<<<< HEAD
     cursor: pointer;
-=======
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
 }
 .phrase {
     text-align: left;
@@ -45,24 +33,13 @@ header {
     font-weight: 900;
     color: #222;
     margin-top: 0;
-<<<<<<< HEAD
     margin-bottom: 30px;
 }
 main {
-=======
-}
-main {
-    width: 100%;
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-<<<<<<< HEAD
-=======
-
-/* 캐러셀 공통 */
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
 .carousel-container {
     position: relative;
     width: 1700px;
@@ -77,7 +54,6 @@ main {
 }
 .carousel-track {
     display: flex;
-<<<<<<< HEAD
     gap: 40px;
 }
 .carousel-container section {
@@ -97,34 +73,10 @@ main {
     flex-shrink: 0;
 }
 
-=======
-    transition: transform 0.5s;
-    width: 100%;
-}
-.carousel-container section {
-    min-width: 575px;
-    max-width: 442px;
-    margin-right: 40px;
-    background: #76716a;
-    border: 3px solid #222;
-    border-radius: 16px;
-    padding: 24px 16px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.carousel-container section:last-child {
-    margin-right: 0;
-}
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
 .carousel-container img {
     width: 154px;
     height: 168px;
     object-fit: contain;
-<<<<<<< HEAD
 }
 
 /* 말풍선 스타일 (contents1~6 공통 적용) */
@@ -152,92 +104,6 @@ main {
     position: absolute;
     left: 40px;
     bottom: -18px;
-=======
-    margin: 8px;
-}
-
-/* 캐러셀 네비게이션 */
-button.left,
-button.right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 2;
-    background: none;
-    border: none;
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: #888;
-    width: 50px;
-    height: 50px;
-    border-radius: 70%;
-    transition: background 0.2s;
-}
-button.left:hover,
-button.right:hover {
-    background: #eee;
-}
-button.left {
-    left: 0;
-}
-button.right {
-    right: 0;
-}
-.dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    gap: 10px;
-}
-.dot {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #ddd;
-    display: inline-block;
-    transition: background 0.2s;
-}
-.dot.active {
-    background: #888;
-}
-
-/* 컨텐츠1 (프로필) */
-.contents1 {
-    position: relative;
-    width: 600px;
-    height: 450px;
-    background: #76716a;
-    border: 3px solid #222;
-    border-radius: 16px;
-    box-sizing: border-box;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-}
-.contents1 .balloon {
-    position: absolute;
-    top: 42px;
-    right: 40px;
-    z-index: 2;
-}
-.contents1 .balloon-text {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    padding: 22px 28px 22px 20px;
-    font-size: 1.08rem;
-    color: #222;
-    width: 400px;
-    height: 165px;
-    position: relative;
-}
-.contents1 .balloon-text::after {
-    content: "";
-    position: absolute;
-    left: 40px;
-    bottom: -15px;
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
     width: 0;
     height: 0;
     border-top: 18px solid #fff;
@@ -245,7 +111,6 @@ button.right {
     border-right: 18px solid transparent;
 }
 .contents1 .img1 {
-<<<<<<< HEAD
     width: 240px;
     height: 240px;
     object-fit: contain;
@@ -314,75 +179,3 @@ button.right {
     background: #888;
 }
 
-=======
-    width: 260px;
-    height: 260px;
-    object-fit: contain;
-    position: absolute;
-    left: 10px;
-    bottom: -5px;
-    z-index: 1;
-}
-
-/* 컨텐츠2~6 (공통) */
-.carousel-container section:not(.contents1) {
-    position: relative;
-    width: 600px;
-    height: 450px;
-    background: #76716a;
-    border: 3px solid #222;
-    border-radius: 16px;
-    box-sizing: border-box;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 0;
-}
-.carousel-container section:not(.contents1) > p {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    padding: 22px 28px 22px 20px;
-    font-size: 14px;
-    color: #222;
-    width: 400px;
-    min-height: 90px;
-    position: absolute;
-    top: 32px;
-    left: 32px;
-    z-index: 2;
-    margin: 0;
-    display: flex;
-    align-items: flex-start;
-}
-.carousel-container section:not(.contents1) > p::after {
-    content: "";
-    position: absolute;
-    left: 40px;
-    bottom: -18px;
-    width: 0;
-    height: 0;
-    border-top: 18px solid #fff;
-    border-left: 18px solid transparent;
-    border-right: 18px solid transparent;
-}
-.carousel-container section:not(.contents1) .img-row {
-    display: flex;
-    flex-direction: row;
-    gap: 18px;
-    position: absolute;
-    left: 32px;
-    bottom: 32px;
-}
-.carousel-container section:not(.contents1) .img-row img {
-    width: 154px;
-    height: 154px;
-    object-fit: contain;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
-    padding: 10px;
-}
->>>>>>> 31ffbe51f667ba4ec83c62da23bc76f0c3e04967
