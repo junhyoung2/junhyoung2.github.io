@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GSAP 라이브러리와 ScrollTrigger 플러그인 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <title>자바스크립트로 스크롤 처리</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        main > * {
+            text-align: center;
+            margin: 3rem auto;
+            font-size: 32px;
+        }
+        main > button {
+            display: block;
+            padding: 0.5rem 1rem;
+            background-color: #222;
+            color: #eee;
+            width: 400px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>create solutions</h1>
+        <p>당신의 비즈니스를 위한 디자인 파트너</p>
+        <button>get started</button>
+    </main>
+
+    <!-- 이미지 애니메이션 제어용 버튼들 -->
+    <button class="move">제품 이미지 이동</button>
+    <button class="pause">정지</button>
+    <button class="play">다시 시작</button>
+    <button class="stop">멈추기</button>
+
+    <!-- 애니메이션 대상 이미지 -->
+    <img src="./img/1.png" class="product-img" alt="1" />
+
+    <script>
+        // 타임라인 애니메이션 정의 (페이지 진입 시 실행)
+        const t1 = gsap.timeline();
+        t1.from("h1", {
+            y: -60,            // 위에서 아래로 떨어지는 효과
+            opacity: 0,        // 처음엔 투명
+            duration: 1,       // 1초 동안 진행
+        })
+        .from("p", {
+            y: 30,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",  // 부드러운 감속
+        }, "-=0.5")              // 이전 애니메이션과 0.5초 겹쳐서 시작
+        .from("button", {
+            scale: 0.5,         // 크기를 절반으로 시작
+            opacity: 0,
+            duration: 0.7,
+            ease: "bounce.out", // 튕기는 느낌의 이징
+        }, "-=0.4");             // 앞 애니메이션보다 0.4초 먼저 시작
+
+        // 제품 이미지 이동 애니메이션 변수 (컨트롤용)
+        let ani = null;
+
+        // "제품 이미지 이동" 버튼 클릭 시 애니메이션 시작
+        document.querySelector(".move").addEventListener("click", () => {
+            if (ani) ani.kill(); // 이전 애니메이션 중복 실행 방지
+            ani = gsap.to(".product-img", {
+                x: 500,             // 오른쪽으로 500px 이동
+                duration: 2,        // 왕복 시간 2초
+                repeat: -1,         // 무한 반복
+                yoyo: true,         // 왕복 효과
+                ease: "power3.out"  // 감속 효과
+            });
+        });
+
+        // "정지" 버튼 클릭 시 애니메이션 일시정지
+        document.querySelector(".pause").addEventListener("click", () => {
+            if (ani) ani.pause();
+        });
+
+        // "다시 시작" 버튼 클릭 시 애니메이션 재생
+        document.querySelector(".play").addEventListener("click", () => {
+            if (ani) ani.play(); // 또는 ani.restart()로 처음부터 재시작 가능
+        });
+
+        // "멈추기" 버튼 클릭 시 애니메이션 완전 종료
+        document.querySelector(".stop").addEventListener("click", () => {
+            if (ani) ani.kill(); // 애니메이션 종료 및 초기화
+        });
+    </script>
+</body>
+</html>

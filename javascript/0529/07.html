@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- GSAP과 ScrollTrigger 플러그인 불러오기 -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <title>스크롤트리거</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            main,
+            footer {
+                height: 100vh; /* 화면 전체 높이 */
+                background-color: #888;
+                font-size: 5rem;
+                display: flex;
+                justify-content: center; /* 가로 중앙 정렬 */
+                align-items: center; /* 세로 중앙 정렬 */
+            }
+            section {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* 세로 중앙 정렬 */
+                align-items: center; /* 가로 중앙 정렬 */
+                gap: 6rem; /* 각 p 요소 사이 간격 */
+            }
+            section > p {
+                width: 500px;
+                font-size: 2rem;
+                opacity: 0; /* 초기 숨김 */
+                transform: translateY(100px); /* 초기 위치 아래로 100px 이동 */
+            }
+        </style>
+    </head>
+    <body>
+        <main>main</main>
+        <section>
+            <p>
+                message 1 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Officia ipsum libero quas officiis rem!
+            </p>
+            <p>
+                message 2 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Officia ipsum libero quas officiis rem!
+            </p>
+            <p>
+                message 3 Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Officia ipsum libero quas officiis rem!
+            </p>
+        </section>
+        <footer>footer</footer>
+        <script>
+            // ScrollTrigger 플러그인 등록 필수
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 스크롤에 반응하는 타임라인 생성
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: "section",      // 애니메이션 시작 기준 요소
+                    start: "top 70%",        // 섹션의 top이 뷰포트 70% 위치에 닿으면 시작
+                    end: "top 10%",          // 섹션의 top이 뷰포트 10% 위치에 닿으면 종료
+                    scrub: true,             // 스크롤 위치에 따라 애니메이션 진행 동기화
+                    markers: true,           // 시작, 종료 위치 시각적 표시 (개발용)
+                }
+            });
+
+            // section 내부 p 태그 모두 선택
+            const $msgs = document.querySelectorAll("section>p");
+
+            // 각 p 태그마다 순서대로 나타났다 사라지는 애니메이션 추가
+            $msgs.forEach((msg) => {
+                // 나타나는 애니메이션: opacity 1, y 위치 0으로 이동
+                tl.to(msg,{
+                    opacity:1,
+                    y:0,
+                    duration:0.5
+                })
+                // 사라지는 애니메이션: opacity 0, y 위치 -100으로 이동 (위로 올라감)
+                tl.to(msg,{
+                    opacity:0,
+                    y:-100,
+                    duration:0.5
+                })
+            });
+        </script>
+    </body>
+</html>
