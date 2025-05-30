@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+:root {
+    --main-color: #ab7835;
+}
+body {
+    background-color: #1d1d1d;
+    overflow-x: hidden;
+}
+html{
+    font-size: 16px;
+}
+/* header */
+header {
+    height: 100vh;
+    background-image: url(../images/header_bg.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header > .slogan {
+    width: 70%;
+    height: 70%;
+    border: 10px solid var(--main-color);
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+header > .slogan > h1 {
+    font-size: 10rem;
+    letter-spacing: 0.5rem;
+    font-weight: bolder;
+}
+header > .slogan > p {
+    font-size: 1.6rem;
+}
+header > .slogan > h2 {
+    font-size: 2rem;
+}
+header > .slogan > h2:after {
+    content: "";
+    display: block;
+    width: 70%;
+    margin: 1rem auto;
+    height: 3px;
+    background-color: #eee;
+}
+
+/* main */
+main {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* section */
+section {
+    height: 100vh;
+}
+section h2 {
+    color: var(--main-color);
+    font-size: 4rem;
+    padding-top: 3rem;
+}
+section h2:after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--main-color);
+}
+
+/* #aboutme */
+#aboutme {
+    /* width: 1200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#aboutme > .wrapper {
+    background-color: #373737;
+    padding: 0 3rem;
+    display: flex;
+}
+#aboutme > .wrapper > .text {
+    flex: 1;
+    color: #eee;
+}
+#aboutme > .wrapper > .text > p {
+    width: 70%;
+    font-size: 1.3rem;
+    margin: 2rem 0;
+}
+#aboutme > .wrapper > .text > button {
+    outline: none;
+    border: 1px solid var(--main-color);
+    background-color: transparent;
+    color: var(--main-color);
+    padding: 1rem;
+    margin: 3rem 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#aboutme > .wrapper > .text > button:hover {
+    background-color: var(--main-color);
+    color: #1d1d1d;
+    transition: 1s;
+    border-radius: 10px;
+}
+#aboutme > .wrapper > .image {
+    flex: 1;
+    position: relative;
+}
+#aboutme > .wrapper > .image > img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 90%;
+}
+
+/* laster */
+#laster > h2 {
+    width: 500px;
+    margin: 0 auto;
+}
+#laster > ul {
+    margin-top: 5rem;
+    display: flex;
+    gap: 5rem;
+}
+#laster > ul > li:nth-child(even) {
+    position: relative;
+    top: 50px;
+}
+#laster > ul > li > h3 {
+    color: var(--main-color);
+    padding: 2rem 0;
+    font-size: 1.3rem;
+}
+#laster > ul > li > h3::after {
+    content: "";
+    display: block;
+    height: 3px;
+    background-color: var(--main-color);
+}
+#laster > ul > li > p {
+    color: #eee;
+    font-size: 1.2rem;
+}
+#laster > ul > li > button {
+    border: none;
+    background-color: transparent;
+    color: var(--main-color);
+    padding: 1rem;
+    cursor: pointer;
+}
+/* contact */
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#contact > .wrapper {
+    background-color: #373737;
+    width: 100%;
+    display: flex;
+}
+#contact > .wrapper > * {
+    flex: 1;
+}
+#contact > .wrapper > .image {
+    position: relative;
+    flex: 1;
+}
+#contact > .wrapper > .image > img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+#contact > .wrapper > .title {
+    flex: 1;
+    padding: 0 2rem;
+}
+#contact > .wrapper > .title > * {
+    margin: 2rem 0;
+}
+#contact > .wrapper > .title > .input {
+    display: flex;
+    gap: 1rem;
+    color: #eee;
+}
+#contact > .wrapper > .title > .input > label {
+    flex: 1;
+}
+#contact > .wrapper > .title > .input > label > span {
+    display: block;
+    width: 100%;
+}
+
+#contact > .wrapper > .title > .input > label > input {
+    display: block;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+#contact > .wrapper > .title > .msg > label {
+    display: block;
+    color: #eee;
+}
+#contact > .wrapper > .title > .msg > textarea {
+    display: block;
+    width: 100%;
+    height: 200px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+#contact > .wrapper > .title > .msg > button {
+    background-color: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#contact > .wrapper > .title > .msg > button:hover {
+    background-color: var(--main-color);
+    color: #1d1d1d;
+    transition: 1s;
+    border-radius: 10px;
+}
+/* footer */

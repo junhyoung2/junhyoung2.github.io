@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>메뉴스타일</title>
+        <style>
+            /* 기본 리셋 */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            /* ----------------------- */
+            /* bigsize 메뉴 스타일링  */
+            /* ----------------------- */
+            .bigsize {
+                margin: 3rem 10rem;
+                font-size: 2rem;
+                font-weight: bolder;
+            }
+
+            .bigsize li {
+                transition: 1s;
+                transform-origin: left center;
+                position: relative;
+            }
+
+            .bigsize li:hover {
+                /* 호버 시 크기 확대 */
+                transform: scale(1.5);
+            }
+
+            .bigsize li:hover::before {
+                width: 40%;
+            }
+
+            .bigsize li::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 36px;
+                background-color: gray;
+                z-index: -1;
+                transition: 1s;
+            }
+
+            /* ----------------------- */
+            /* rotate 메뉴 스타일링   */
+            /* ----------------------- */
+            .rotate {
+                display: flex;
+                justify-content: center;
+                gap: 3rem;
+                margin-top: 3rem;
+            }
+
+            .rotate > li > a {
+                display: inline-block;
+                position: relative;
+                height: 30px;
+                overflow: hidden;
+                white-space: nowrap;
+                padding: 0 1rem;
+            }
+
+            .rotate > li > a::before,
+            .rotate > li > a::after {
+                /* hover 전후 효과를 위해 content 복제 */
+                content: attr(data-link);
+                position: absolute;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: 0.5s;
+            }
+
+            .rotate > li > a::before {
+                /* 초기 배경색 (회색) */
+                top: 0;
+                background-color: gray;
+            }
+
+            .rotate > li > a::after {
+                /* hover 시 올라올 배경색 (파랑) */
+                top: 100%;
+                background-color: blue;
+            }
+
+            .rotate > li > a:hover::before {
+                top: -100%;
+            }
+
+            .rotate > li > a:hover::after {
+                top: 0;
+            }
+
+            /* ------------------------------- */
+            /* 텍스트 애니메이션(textani)     */
+            /* ------------------------------- */
+            .textani {
+                margin: 5rem;
+                margin-top: 10rem;
+                font-size: 6rem; /* 너무 큰 글씨는 줄바꿈 유발 */
+                font-weight: bolder;
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                flex-wrap: nowrap;      /* 줄바꿈 방지 */
+                white-space: nowrap;    /* span이 줄바꿈되지 않게 */
+                overflow-x: auto;       /* 화면 작을 때 가로 스크롤 */
+            }
+
+            .textani > span {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- bigsize 메뉴 -->
+        <ul class="bigsize">
+            <li><a href="#">ABOUTME</a></li>
+            <li><a href="#">PROJECT</a></li>
+            <li><a href="#">SKILLS</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+
+        <!-- rotate 메뉴 -->
+        <ul class="rotate">
+            <li><a href="#" data-link="ABOUTME">ABOUTME</a></li>
+            <li><a href="#" data-link="PROJECT">PROJECT</a></li>
+            <li><a href="#" data-link="SKILLS">SKILLS</a></li>
+            <li><a href="#" data-link="CONTACT">CONTACT</a></li>
+        </ul>
+
+        <!-- 텍스트 애니메이션 -->
+        <div class="textani">
+            <!-- 개별 글자를 span으로 감싸서 애니메이션 가능하도록 구성 -->
+            <span>P</span>
+            <span>O</span>
+            <span>R</span>
+            <span>T</span>
+            <span>F</span>
+            <span>O</span>
+            <span>L</span>
+            <span>I</span>
+            <span>O</span>
+        </div>
+
+        <!-- gsap 애니메이션 라이브러리 -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <script>
+            // 텍스트 애니메이션 - 위로 튕기듯이 올라오며 나타남
+            gsap.fromTo(
+                ".textani > span",
+                {
+                    y: 0,
+                    opacity: 0,
+                },
+                {
+                    y: -80,
+                    opacity: 1,
+                    duration: 0.5,
+                    ease: "bounce.out",
+                    stagger: 0.2, // 한 글자씩 순차적으로
+                }
+            );
+        </script>
+    </body>
+</html>
