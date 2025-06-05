@@ -373,6 +373,9 @@ section#skills {
     filter: brightness(80%);
 }
 
+
+/* skills & tools 영역 */
+
 .shape1 {
     border-radius: 50%; /* 완전한 원 */
     transform: rotate(20deg);
