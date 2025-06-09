@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>react 라이브러리 사용</title>
+    </head>
+    <body>
+        <header>
+            <h1>react</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">HTML</a></li>
+                <li><a href="#">CSS</a></li>
+                <li><a href="#">Javascript</a></li>
+            </ul>
+        </nav>
+        <!-- <main>
+        <h2>welcome, react world</h2>
+    </main> -->
+        <!-- <script src="./script.js"></script> -->
+        <script
+            src="https://unpkg.com/react@18/umd/react.development.js"
+            crossorigin
+        ></script>
+        <script
+            src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+            crossorigin
+        ></script>
+
+
+        <script>
+            const e = React.createElement;
+            //App이라는 컴포넌트를 생성
+            const App =()=>{
+                return e("h2",null,"welcome, react world")
+            };
+        const $main = document.createElement("main");
+            document.body.appendChild($main);
+            //가상 DOM을 구성
+            const root = ReactDOM.createRoot($main);
+            root.render(e(App));
+        </script>
+    </body>
+</html>
