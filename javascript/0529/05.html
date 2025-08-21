@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSAP 기본 예제</title>
+    
+    <!-- GSAP 라이브러리 및 ScrollTrigger (사용 안 했지만 포함됨) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <style>
+      /* 기본 스타일 정의 */
+      .title {
+        opacity: 0;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .box {
+        width: 900px;
+        height: 20px;
+        background-color: tomato;
+        margin-bottom: 2rem;
+      }
+
+      .detail {
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 애니메이션 타겟 요소들 -->
+    <div class="title">WELCOME</div>
+    <div class="box"></div>
+    <div class="detail">자세히보기</div>
+
+    <script>
+      // 🌟 GSAP 기본 메서드 예제
+
+      // 1. gsap.to(): 현재 상태 → 지정된 상태로 전환
+      // ex) 오른쪽으로 800px 이동 + 투명도 1
+      gsap.to(".title", {
+        x: 800,
+        opacity: 1,
+        duration: 6,
+        ease: "power2.out",
+      });
+
+      // 2. gsap.from(): 초기 상태를 정의 → 현재 상태로 이동
+      // ex) Y축 -100에서 떨어지듯이 등장
+      gsap.from(".box", {
+        y: -100,
+        opacity: 0,
+        ease: "power2.out",
+        delay: 2, // ⛔ 오타 수정: delaly → delay
+      });
+
+      // 3. gsap.fromTo(): 시작 상태와 목표 상태 모두 지정
+      // ex) 오른쪽에서 왼쪽으로 이동 + 색상 변경 + 투명도
+      gsap.fromTo(
+        ".detail",
+        {
+          x: 100,
+          opacity: 0,
+          backgroundColor: "#f00", // 빨간색에서
+        },
+        {
+          x: 800,
+          opacity: 1,
+          backgroundColor: "#00f", // 파란색으로
+          duration: 6,
+          scale: 1,
+          ease: "power4.out",
+        }
+      );
+    </script>
+  </body>
+</html>

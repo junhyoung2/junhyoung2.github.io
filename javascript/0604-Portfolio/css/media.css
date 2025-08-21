@@ -1,0 +1,509 @@
+@charset "utf-8";
+
+:root {
+    --main-color: #2957e2;
+    --sub-color: #eee;
+    --sub-font: 3rem;
+}
+
+html {
+    /* font size 10px 고정 */
+    font-size: 62.5%;
+    /* font-size: 0.98vw; */
+    scroll-behavior: smooth;
+}
+body {
+    /* font-size: clamp(1rem,1vw,1.8rem); clamp 함수  */
+    background-color: var(--main-color);
+    color: var(--sub-color);
+    /* overflow: hidden; */
+}
+#logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    font-size: 2rem;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    overflow: hidden;
+    animation: logoFade 3s linear infinite;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+@keyframes logoFade {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+#logo > li {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--main-color);
+    transition: top 0.5s ease;
+}
+#logo > li:nth-child(1) {
+    top: 0;
+}
+#logo > li:nth-child(2) {
+    top: 100%;
+}
+
+#logo:hover > li:nth-child(1) {
+    top: 100%;
+}
+#logo:hover > li:nth-child(2) {
+    top: 0;
+}
+header {
+    height: 100vh;
+    position: relative;
+    font-size: 3rem;
+    padding-top: 120px;
+}
+nav {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    display: flex;
+}
+.gnb {
+    font-size: 4rem;
+}
+/* hover 효과 */
+ul.gnb > li {
+    position: relative;
+    overflow: hidden;
+}
+
+ul.gnb > li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--sub-color);
+    z-index: 0;
+    transition: width 0.5s;
+}
+
+ul.gnb > li:hover::before {
+    width: 100%;
+}
+
+ul.gnb > li > a {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.5s, color 0.5s;
+    transform-origin: left center;
+}
+
+ul.gnb > li:hover > a {
+    transform: scale(1.3);
+    color: var(--main-color);
+}
+
+.title {
+    font-size: 2.5rem;
+    align-self: flex-end;
+}
+.title > li {
+    margin: 2rem 0;
+}
+h1 {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14vw;
+}
+.arrow-wrap {
+    position: absolute;
+    left: 15%;
+    /* transform: translateX(-50%); */
+    width: 100px;
+    height: 80px;
+    bottom: 20%;
+    opacity: 0.7;
+}
+.arrow-wrap > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.arrow-wrap > .arrow-box {
+    width: 100%;
+    height: 100%;
+    background-color: var(--sub-color);
+    border-radius: 10px;
+    transform: rotate(30deg);
+    animation: rotateBox 10s linear infinite;
+}
+.arrow-wrap > .arrow {
+    color: var(--main-color);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes rotateBox {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* 공통 */
+section {
+    width: 90%;
+    margin: 10rem auto;
+}
+
+/* about */
+
+section#about {
+    margin-top: 20rem;
+    font-size: 1.5rem;
+}
+#about .info {
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    padding: 2rem 4rem;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#about .info h2 {
+    font-size: var(--sub-font);
+    display: inline-block;
+    position: relative;
+    color: var(--sub-color);
+    -webkit-text-stroke: 1px var(--main-color);
+    z-index: 1;
+    padding: 2rem 0;
+}
+#about .info h2:before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(30deg);
+    width: 50%;
+    aspect-ratio: 1/0.7;
+    background-color: var(--main-color);
+    border-radius: 20px;
+}
+#about .info p {
+    font-size: 1.5rem;
+    text-align: right;
+    padding-top: 3rem;
+    word-break: keep-all;
+}
+
+#about .word {
+    margin: 5rem 0;
+}
+#about .word h2 {
+    font-size: var(--sub-font);
+}
+#about .word h2.bottom {
+    text-align: right;
+}
+
+#about .kewword {
+}
+
+#about .keyword > li {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    align-items: center;
+}
+#about .keyword > li > p {
+    /* font-size: 3rem; */
+    font-size: 4vw;
+    font-weight: bolder;
+    padding: 1rem 2rem;
+    border: 1px solid var(--sub-color);
+    border-radius: 4rem;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+    word-break: keep-all;
+    text-align: center;
+}
+
+/* project */
+#projects > .project-wrap {
+    margin-bottom: 5rem;
+}
+#projects > .project-wrap > h2 {
+    border: 1px solid var(--sub-color);
+    font-size: var(--sub-font);
+    border-radius: 3rem;
+    padding: rem 0;
+    text-align: center;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 3rem;
+}
+#projects > .project-wrap > .item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    font-size: 1.5rem;
+    
+}
+.itme-list .item{
+     box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+}
+#projects > .project-wrap > .item-list > li > * {
+    border: 1px solid var(--sub-color);
+    border-top: none;
+}
+#projects > .project-wrap > .item-list > li > .item-title {
+    border-top: 1px solid var(--sub-color);
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    padding: 1rem;
+}
+
+#projects > .project-wrap > .item-list > li > .item-detail {
+    background-color: var(--sub-color);
+    color: var(--main-color);
+}
+
+.project-wrap > h2 {
+    text-align: center;
+    padding: 2rem;
+    font-size: var(--sub-font);
+    color: var(--sub-color);
+    border: 1px solid var(--main-color);
+    border-radius: 3rem;
+}
+.item-list {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.item-list > .item > * {
+    padding: 0.7rem;
+    border: 1px solid var(--main-color);
+    border-top: none;
+    font-size: 1.2rem;
+}
+.item-list > .item > .item-title {
+    border-top: 1px solid var(--main-color);
+    font-size: 1.7rem;
+}
+.item-list > .item > .item-img {
+    width: 100%;
+    aspect-ratio: 1/0.5;
+    background-color: #888;
+}
+.item-list > .item > .btn {
+    display: flex;
+    gap: 1rem;
+    /* padding: 0; */
+    align-items: center;
+}
+.item-list > .item > .btn > p:hover {
+    filter: brightness(70%);
+}
+.item-list > .item > .btn > p {
+    cursor: pointer;
+    flex: 1;
+    background-color: var(--main-color);
+    color: var(--sub-color);
+    font-weight: bold;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 7px;
+}
+.item-detail > li {
+    font-size: 1.2rem;
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+.item-detail > li > p {
+    width: 100px;
+    text-align: right;
+    font-weight: 600;
+}
+.item-detail > li > .tool {
+    display: flex;
+    gap: 3px;
+}
+.item-detail > li > .tool > p {
+    border-radius: 2rem;
+    border: 1px solid var(--main-color);
+    padding: 3px 5px;
+    color: var(--sub-color);
+    background-color: var(--main-color);
+}
+
+/* practice project 레이아웃 변경 */
+#projects > .practice > .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 4%; /* 아이템 간 간격 조절 */
+}
+.practice .item-detail > li > p {
+    display: none;
+}
+.practice .item {
+    flex: 0 1 48%;
+    box-sizing: border-box;
+}
+
+/* skills & tools영역 */
+#skills > h2 {
+    border: 1px solid var(--sub-color);
+    font-size: var(--sub-font);
+    border-radius: 3rem;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+#skills > .skill-item {
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+#skills > .skill-item > li {
+    /* background-color: var(--sub-color); */
+    /* color: var(--main-color); */
+    padding: 1rem 2rem;
+    border-radius: 4rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* skills > background */
+.shape1 {
+    background-color: #31a8ff;
+} /* Photoshop (Adobe 컬러) */
+.shape2 {
+    background-color: #ff9a00;
+} /* Illustrator (Adobe 컬러) */
+.shape3 {
+    background-color: #e44d26;
+} /* HTML5 (로고 컬러) */
+.shape4 {
+    background-color: #264de4;
+} /* CSS3 (로고 컬러) */
+.shape5 {
+    background-color: #f0db4f;
+    color: #323330;
+} /* JavaScript */
+.shape6 {
+    background-color: #ffca28;
+    color: #1a1a1a;
+} /* ES6+ (JS 확장) */
+.shape7 {
+    background-color: #3c99dc;
+} /* Flexbox - CSS 논리 확장 */
+.shape8 {
+    background-color: #28a4d1;
+} /* Grid Layout */
+.shape9 {
+    background-color: #50c878;
+} /* Media Queries - 반응형 느낌 */
+.shape10 {
+    background-color: #ff7262;
+} /* Figma (브랜드 컬러) */
+.shape11 {
+    background-color: #cd6799;
+} /* SCSS (Sass 로고 색) */
+.shape12 {
+    background-color: #88ce02;
+} /* GSAP (그린삭 느낌) */
+.shape13 {
+    background-color: #24292e;
+    color: white;
+}
+
+/* footer */
+footer {
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    font-size: 2.5rem;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     margin: 1.5rem;
+     border-radius: 20px;
+}
+
+footer .links > li {
+    background-color: var(--main-color);
+    color: var(--sub-color);
+    padding: 1rem 0;
+    border-radius: 4rem;
+    margin: 1.5rem 0;
+    
+}
+
+footer .footer-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    
+}
+footer .footer-wrap > h2 {
+    font-size: 6rem;
+}
+footer .footer-wrap > p {
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+footer .links > li:nth-child(1){
+    border: 1px solid var(--main-color);
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    padding: 1rem;
+    border-radius: 4rem;
+    margin: 1rem 0;
+}
+footer .links > li:nth-child(2){
+    border: 1px solid var(--sub-color);
+    background-color: var(--main-color);
+    color: var(--sub-color);
+    padding: 1rem;
+    border-radius: 4rem;
+    margin: 1rem 0;
+}

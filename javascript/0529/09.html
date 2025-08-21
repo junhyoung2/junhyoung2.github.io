@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- GSAP 및 ScrollTrigger 플러그인 불러오기 -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <title>스크롤 고정</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box; /* 패딩, 보더 포함한 박스 크기 계산 */
+            }
+            header,
+            footer {
+                height: 100vh; /* 화면 높이만큼 */
+                background-color: darkgreen;
+                display: flex;
+                justify-content: center; /* 가로 중앙 */
+                align-items: center;     /* 세로 중앙 */
+                font-size: 6rem;
+                font-weight: bolder;
+                color: #eee;
+            }
+            article {
+                height: 100vh; /* 각 article도 화면 높이 */
+                padding: 3rem;
+                border: 2px solid darkred;
+                background-color: #eee;
+            }
+            article > div {
+                width: 300px;
+                height: 300px;
+                background-color: navy;
+                color: #eee;
+                border-radius: 50%; /* 원형 */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 4rem;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <header>HEADER</header>
+        <main>
+            <section>
+                <article>
+                    <div class="cicle">1</div>
+                </article>
+                <article>
+                    <div class="cicle">2</div>
+                </article>
+                <article>
+                    <div class="cicle">3</div>
+                </article>
+            </section>
+        </main>
+        <footer>FOOTER</footer>
+        <script>
+            // ScrollTrigger 플러그인 등록 필수
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 모든 article 요소 선택
+            const $article = document.querySelectorAll("section>article");
+
+            // 각 article마다 개별 ScrollTrigger 설정
+            $article.forEach((elem, idx) => {
+                gsap.to(elem, {
+                    scrollTrigger: {
+                        trigger: elem,        // 애니메이션 트리거 대상
+                        start: "top top",     // viewport 최상단에 elem의 top이 닿으면 시작
+                        end: "bottom top",    // elem의 bottom이 viewport top에 닿으면 끝
+                        pin: true,            // 해당 elem을 고정시켜 스크롤 고정 효과
+                        pinSpacing: idx >= 2 ? true : false, 
+                        // 세 번째(article 3)부터 pin 후 아래 공간 유지 (true)
+                        // 첫 두 개는 pin 후 공간 유지 안 함 (false)
+                        scrub: true,          // 스크롤 위치에 따라 부드럽게 애니메이션 진행
+                        markers: true         // 시작/종료 위치 시각적 표시 (디버깅용)
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>

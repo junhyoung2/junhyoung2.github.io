@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <title>GSAP 애니메이션 예제</title>
+    <style>
+      /* 초기화 스타일 */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        align-items: center;
+        overflow-x: hidden;
+      }
+
+      li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      nav > ul {
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem 0;
+        background-color: #222;
+        color: #eee;
+        font-size: 1.5rem;
+      }
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 10rem;
+      }
+
+      h1 > span {
+        display: inline-block;
+        transform: translateX(700px); /* 초기 위치 오른쪽 */
+      }
+
+      .down {
+        font-size: 5rem;
+        background-color: #222;
+        color: #eee;
+        padding: 1rem;
+        border-radius: 50%;
+        margin-bottom: 2rem;
+      }
+
+      .menu {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 1rem;
+        z-index: 100;
+        cursor: pointer;
+      }
+
+      .menu > p {
+        width: 100%;
+        height: 2px;
+        background-color: #222;
+      }
+
+      .slide {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        background-color: aqua;
+        transform: translateX(300px); /* 초기 위치: 화면 밖 */
+        z-index: 99;
+      }
+
+      .gallery img {
+        width: 300px;
+        margin: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 햄버거 메뉴 버튼 -->
+    <div class="menu">
+      <p></p>
+      <p></p>
+      <p></p>
+    </div>
+
+    <!-- 슬라이드 사이드바 -->
+    <div class="slide"></div>
+
+    <!-- 네비게이션 메뉴 -->
+    <nav>
+      <ul>
+        <li><a href="#">메뉴-1</a></li>
+        <li><a href="#">메뉴-2</a></li>
+        <li><a href="#">메뉴-3</a></li>
+        <li><a href="#">메뉴-4</a></li>
+        <li><a href="#">메뉴-5</a></li>
+      </ul>
+    </nav>
+
+    <!-- 큰 제목 텍스트 -->
+    <h1>main header</h1>
+
+    <!-- 이미지 갤러리 -->
+    <div class="gallery">
+      <img src="./img/1.png" alt="1" />
+      <img src="./img/2.png" alt="2" />
+      <img src="./img/3.png" alt="3" />
+    </div>
+
+    <!-- 아래로 이동 아이콘 -->
+    <div class="down">▼</div>
+
+    <script>
+      // [1] 네비게이션 등장 애니메이션
+      gsap.from("nav>ul", {
+        y: -100,
+        opacity: 0,
+        duration: 1.5, // UX를 위해 너무 길지 않게 조정
+        ease: "power2.out",
+      });
+
+      // [2] h1 텍스트를 개별 글자로 분리하고 span으로 감싸기
+      const $h1 = document.querySelector("h1");
+      const text = [...$h1.textContent.toUpperCase()];
+      const textarr = text.map((char) => `<span>${char}</span>`);
+      $h1.innerHTML = textarr.join("");
+
+      // [3] 분리된 span 텍스트에 애니메이션 적용
+      const $spans = document.querySelectorAll("h1>span");
+      const tl = gsap.timeline();
+      $spans.forEach((elem) => {
+        gsap.set(elem, {
+          opacity: 0,
+          rotation: 365,
+        });
+
+        tl.to(elem, {
+          x: 0,
+          rotation: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "back.out(1)",
+        });
+      });
+
+      // [4] ▼ 아이콘 무한 와리가리
+      gsap.to(".down", {
+        y: -20,
+        duration: 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inout",
+      });
+
+      // [5] 갤러리 이미지 등장 애니메이션
+      gsap.from(".gallery>img", {
+        opacity: 0,
+        x: 200,
+        y: 200,
+        duration: 0.5,
+        stagger: 0.2,
+        ease: "power2.out",
+      });
+
+      // [6] 슬라이드 메뉴 토글
+      const $menu = document.querySelector(".menu");
+      $menu.addEventListener("click", () => {
+        $menu.classList.toggle("open");
+        const isOpen = $menu.classList.contains("open");
+
+        // 슬라이드와 메뉴 버튼의 위치 변화
+        gsap.to(".slide", {
+          x: isOpen ? 0 : 300,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+
+        gsap.to(".menu", {
+          x: isOpen ? -300 : 0,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- GSAP 라이브러리 및 ScrollTrigger 플러그인 로드 -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <title>세로/가로스크롤</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            main{
+                background-color: yellowgreen;
+            }
+            body {
+                /* 수평 스크롤바 숨기고 싶으면 주석 해제 */
+                /* overflow-x: hidden; */
+                font-size: 3rem;
+                font-weight: bolder;
+            }
+            header,
+            footer {
+                height: 100vh; /* 화면 높이 만큼 */
+                background-color: tomato;
+                display: flex;
+                justify-content: center; /* 가로 중앙 정렬 */
+                align-items: center; /* 세로 중앙 정렬 */
+            }
+            section {
+                width: 250%; /* 가로 길이가 뷰포트의 2.5배 */
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                gap: 1rem; /* article 사이 간격 */
+            }
+            section > article {
+                width: 50%; /* section의 절반 너비 */
+                height: 50%;
+                background-color: #eee;
+                border: 2px solid #222;
+            }
+        </style>
+    </head>
+    <body>
+        <header>세로 스크롤 시작</header>
+        <main>
+            <section>
+                <article>article-1</article>
+                <article>article-2</article>
+                <article>article-3</article>
+                <article>article-4</article>
+                <article>article-5</article>
+            </section>
+            <footer>세로 스크롤 끝</footer>
+        </main>
+        <script>
+            // ScrollTrigger 플러그인 등록 필수
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 가로 스크롤에 필요한 총 이동 거리 계산 (섹션 전체 너비 - 현재 화면 너비)
+            const $section = document.querySelector("section");
+            let total = $section.scrollWidth - window.innerWidth;
+
+            // gsap 애니메이션으로 섹션을 왼쪽으로 총 이동거리만큼 이동
+            gsap.to("section", {
+                x: -total, // 음수 방향으로 이동하여 가로 스크롤 효과 구현
+                ease: "power2.out", // 부드러운 easing 효과
+
+                scrollTrigger: {
+                    trigger: "main",    // 스크롤 애니메이션 시작 기준
+                    start: "top top",   // 뷰포트 최상단에 main이 닿으면 시작
+                    end: "+=" + total,  // 스크롤 끝 지점 (총 이동 거리만큼)
+                    scrub: true,        // 스크롤 위치에 맞춰 애니메이션 진행 (부드럽게 동기화)
+                    pin: true,          // main 요소를 고정하여 스크롤 시 위치 고정
+                    markers: true       // 시작/종료 위치 시각화 (개발용)
+                }
+            });
+        </script>
+    </body>
+</html>

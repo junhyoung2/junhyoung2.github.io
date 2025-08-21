@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <title>자바스크립트로 스크롤 처리</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            main {
+                height: 300vh;
+                background-color: #888;
+            }
+            .progress{
+                width: 100%;
+                height: 20px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background-color: tomato;
+                padding: 5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="progress"></div>
+        </main>
+
+        <script>
+            window.addEventListener("scroll", () => {
+                // 현재 스크롤 위치 (수정: window.scrollY)
+                const scrolltop = window.scrollY;
+
+                // 문서 전체 높이에서 뷰포트 높이 뺀 값
+                const docheight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+                // 현재 스크롤 위치 백분율 계산
+                const percent = (scrolltop / docheight) * 100;
+
+                // 프로그레스 바 요소 선택
+                const $bar = document.querySelector(".progress");
+
+                // 프로그레스 바 너비 조절 (수정: width)
+                $bar.style.width = `${percent}%`;
+            });
+        </script>
+    </body>
+</html>
